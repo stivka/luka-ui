@@ -18,22 +18,24 @@ const Guestbook = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name && message) {
-            const newEntry = { name, message };
+            const newEntry = { name, message };  // Construct the new entry object
 
             fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, message })
+                body: JSON.stringify(newEntry)  // Use JSON.stringify to send newEntry as the request body
             })
                 .then(response => response.json())
                 .then(data => {
-                    setEntries([data, ...entries]); // Assume the backend returns the saved entry with an ID
+                    setEntries(prevEntries => [data, ...prevEntries]);  // Assume the backend returns the saved entry
                     setName('');
                     setMessage('');
                 })
-                .catch(error => console.error('Failed to save the new entry:', error));
+                .catch(error => {
+                    console.error('Failed to save the new entry:', error);
+                });
         }
     };
 
