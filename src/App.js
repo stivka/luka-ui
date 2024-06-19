@@ -2,7 +2,7 @@ import React from 'react';
 import Guestbook from './components/Guestbook';
 import EmbedSpotify from './components/EmbedSpotify';
 import EmbedYouTube from './components/EmbedYouTube';
-import {createTheme, ThemeProvider, Grid, useMediaQuery} from '@mui/material';
+import {createTheme, ThemeProvider, Grid} from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const theme = createTheme({
