@@ -1,47 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Container, TextField, Typography, Card, CardContent } from '@mui/material';
+import { Box, Button, Container, TextField, Typography, Card, CardContent, Pagination } from '@mui/material';
 
 const Guestbook = () => {
     const [entries, setEntries] = useState([]);
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
-
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const entriesPerPage = 5;
     const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
-        fetch(apiUrl)
+        fetch(`${apiUrl}?page=${page - 1}&limit=${entriesPerPage}`)
             .then(response => response.json())
-            .then(data => setEntries(data))
-            .catch(error => console.error('Failed to fetch entries:', error));
-    }, [apiUrl]);
+            .then(data => {
+                if (data && data.content && Array.isArray(data.content)) {
+                    setEntries(data.content);
+                    setTotalPages(data.totalPages || 0);
+                } else {
+                    throw new Error('Invalid data structure');
+                }
+            })
+            .catch(error => {
+                console.error('Failed to fetch entries:', error);
+                setEntries([]);
+                setTotalPages(0);
+            });
+    }, [apiUrl, page]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name && message) {
-            const newEntry = { name, message };  // Construct the new entry object
+            const newEntry = { name, message };
 
             fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newEntry)  // Use JSON.stringify to send newEntry as the request body
+                body: JSON.stringify(newEntry)
             })
                 .then(response => response.json())
                 .then(data => {
-                    setEntries(prevEntries => [data, ...prevEntries]);  // Assume the backend returns the saved entry
+                    setEntries([data, ...entries.slice(0, entriesPerPage-1)]);
                     setName('');
                     setMessage('');
                 })
-                .catch(error => {
-                    console.error('Failed to save the new entry:', error);
-                });
+                .catch(error => console.error('Failed to save the new entry:', error));
         }
     };
 
+    const handlePageChange = (event, value) => {
+        setPage(value);
+    };
+
     return (
-        <Container maxWidth="sm">
-            <Typography variant="h4" align="center" gutterBottom>Guestbook</Typography>
+        <Container maxWidth="sm" sx={{
+            maxHeight: 'calc(100vh - 2em)', // Adjusting for any external padding/margins
+            overflow: 'auto',    // Allow internal scrolling if needed
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
             <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
                 <TextField
                     label="Name"
@@ -61,20 +80,19 @@ const Guestbook = () => {
                     rows={4}
                     margin="normal"
                 />
-                <Button variant="contained" color="primary" type="submit" fullWidth>Submit</Button>
+                <Button variant="contained" color="primary" type="submit" fullWidth>Write</Button>
             </Box>
-            {entries.length > 0 ? (
-                entries.map((entry) => (
-                    <Card key={entry.id} sx={{ mb: 2 }}> {/* Assuming each entry has a unique 'id' */}
-                        <CardContent>
-                            <Typography variant="h6">{entry.name}</Typography>
-                            <Typography variant="body1">{entry.message}</Typography>
-                            <Typography variant="body2" color="textSecondary">{new Date(entry.date).toLocaleString()}</Typography>
-                        </CardContent>
-                    </Card>
-                ))
-            ) : (
-                <Typography align="center">No entries yet. Be the first to sign the guestbook!</Typography>
+            {entries.map((entry) => (
+                <Card key={entry.id} sx={{ mb: 2, borderRadius: 0 }}>
+                    <CardContent sx={{ padding: '8px' }}>
+                        <Typography variant="h6" align="center" noWrap>{entry.name}</Typography>
+                        <Typography variant="body1" align="center" noWrap>{entry.message}</Typography>
+                        <Typography variant="body2" color="textSecondary" align="center" noWrap>{new Date(entry.date).toLocaleString()}</Typography>
+                    </CardContent>
+                </Card>
+            ))}
+            {totalPages > 1 && (
+                <Pagination count={totalPages} page={page} onChange={handlePageChange} color="primary" sx={{ justifyContent: 'center', display: 'flex', my: 2 }} />
             )}
         </Container>
     );

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-const EmbedSpotify = ({ trackUrl }) => {
+const EmbedSpotify = ({ albumUrl }) => {
     return (
         <Box sx={{ my: 4 }}>
             <iframe
-                src={`https://open.spotify.com/embed/track/${trackUrl}`}
+                src={`https://open.spotify.com/embed/album/${albumUrl}`}
                 width="300"
                 height="380"
                 frameBorder="0"

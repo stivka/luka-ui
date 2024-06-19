@@ -2,26 +2,27 @@ import React from 'react';
 import Guestbook from './components/Guestbook';
 import EmbedSpotify from './components/EmbedSpotify';
 import EmbedYouTube from './components/EmbedYouTube';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {createTheme, ThemeProvider, Grid, useMediaQuery} from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#0078d7',
+            main: '#808080',
         },
         background: {
-            default: '#e0e0e0',
+            default: 'transparent',
         },
     },
     typography: {
-        fontFamily: 'Arial, sans-serif',
+        fontFamily: '"Roboto Mono", "Courier New", monospace',
+        fontSize: 12,
     },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius: '5px',
+                    borderRadius: 0,
                     textTransform: 'none',
                 },
             },
@@ -29,7 +30,7 @@ const theme = createTheme({
         MuiTextField: {
             styleOverrides: {
                 root: {
-                    borderRadius: '5px',
+                    borderRadius: 0,
                     marginBottom: '1em',
                 },
             },
@@ -39,7 +40,7 @@ const theme = createTheme({
                 root: {
                     marginBottom: '1em',
                     padding: '1em',
-                    borderRadius: '10px',
+                    borderRadius: 0,
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 },
             },
@@ -50,20 +51,38 @@ const theme = createTheme({
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <header style={{ backgroundColor: '#0078d7', color: 'white', textAlign: 'center', padding: '1em', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
-                <h1>Welcome to Luka UI</h1>
-            </header>
-            <main style={{ backgroundColor: 'white', padding: '2em', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', width: '80%', maxWidth: '800px', margin: '2em auto', textAlign: 'center' }}>
-                <Guestbook />
-                <EmbedSpotify trackUrl="7ouMYWpwJ422jRcDASZB7P" />
-                <EmbedYouTube videoUrl="dQw4w9WgXcQ" />
+            <CssBaseline/>
+            <main style={{
+                width: '100%',
+                margin: '0',
+                padding: '0',
+                minHeight: '100vh', // Use full viewport height
+                display: 'flex',
+                flexDirection: 'column',
+            }}>
+                <Grid container spacing={0} style={{ minHeight: 'calc(100vh - 1.5em)', overflow: 'hidden' }}>
+                    <Grid item xs={12} md={3} style={{
+                        padding: '1em',
+                        display: 'flex',  // Make the grid item a flex container
+                        flexDirection: 'column',  // Stack children vertically
+                        justifyContent: 'center',  // Center children vertically
+                        alignItems: 'center',  // Center children horizontally
+                        height: '100%'  // Ensure the grid item takes up full height
+                    }}>
+                        <div style={{ maxWidth: '560px', width: '100%' }}>
+                            <EmbedSpotify albumUrl="5VmKMLTrpNTaCjR8qxavz9" />
+                            <EmbedYouTube videoUrl="dQw4w9WgXcQ" />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={9} style={{ padding: '1em' }}>
+                        <Guestbook />
+                    </Grid>
+                </Grid>
             </main>
-            <footer style={{ marginTop: '2em', fontSize: '0.8em', color: '#777', textAlign: 'center' }}>
-                <p>&copy; 2024 Stivka. All rights reserved.</p>
-            </footer>
+
         </ThemeProvider>
-    );
+    )
+        ;
 }
 
 export default App;
