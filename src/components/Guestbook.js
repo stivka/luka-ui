@@ -67,7 +67,7 @@ const Guestbook = () => {
 
     return (
         <Container maxWidth="sm" sx={{
-            // maxHeight: 'calc(100vh - 2em)', // Adjusting for any external padding/margins
+            maxHeight: 'calc(100vh - 100px)', // Adjusting for header/footer and other content
             overflow: 'auto',    // Allow internal scrolling if needed
             display: 'flex',
             flexDirection: 'column'

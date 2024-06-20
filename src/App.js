@@ -15,20 +15,25 @@ function App() {
             <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container sx={{ height: '100%', justifyContent: 'center', alignItems: 'center' }} name="MainContentBox">
-                        <Grid xs>
-                            <iframe
-                                src={`https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9`}
-                                width="100%"
-                                height="680px" // specific height so that all songs are displayed
-                                allow="encrypted-media"
-                                allowFullScreen
-                                title="Spotify"
-                            ></iframe>
+                        <Grid item xs={12} sm={8} md={6} lg={4} xl={3}>
+                            <Box sx={{
+                                position: 'relative',
+                                width: '100%'
+                            }}>
+                                <iframe
+                                    src={`https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9`}
+                                    width="100%"
+                                    height="680px" // specific height so that all songs are displayed
+                                    allow="encrypted-media"
+                                    allowFullScreen
+                                    title="Spotify"
+                                ></iframe>
+                            </Box>
                         </Grid>
-                        <Grid xs={7}>
+                        <Grid item xs={12} sm={12} md={6} lg={8} xl={6}>
                             <Guestbook />
                         </Grid>
-                        <Grid xs>
+                        <Grid item xs={12} sm={8} md={6} lg={4} xl={3}>
                             <Box sx={{ position: 'relative', width: '100%', paddingTop: '56.25%' /* 16:9 aspect ratio */ }}>
                                 <iframe
                                     src={`https://www.youtube.com/embed/dQw4w9WgXcQ`}
