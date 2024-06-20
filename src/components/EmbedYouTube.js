@@ -1,16 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import {Box} from '@mui/material';
 
-const EmbedYouTube = ({ videoUrl }) => {
+const EmbedYouTube = ({videoUrl}) => {
     return (
-        <Box sx={{
-            my: 4,
-            position: 'relative',
-            overflow: 'hidden',
-            paddingTop: '56.25%', // Aspect ratio for 16:9
-            borderRadius: '10px',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
-        }}>
+        <Box>
             <iframe
                 src={`https://www.youtube.com/embed/${videoUrl}`}
                 frameBorder="0"

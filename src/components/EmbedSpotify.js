@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import {Box} from '@mui/material';
 
-const EmbedSpotify = ({ albumUrl }) => {
+const EmbedSpotify = ({albumUrl}) => {
     return (
-        <Box sx={{ my: 4 }}>
+        <Box>
             <iframe
                 src={`https://open.spotify.com/embed/album/${albumUrl}`}
                 width="300"
@@ -12,7 +12,7 @@ const EmbedSpotify = ({ albumUrl }) => {
                 allow="encrypted-media"
                 allowFullScreen
                 title="Spotify"
-                style={{ borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+                style={{borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}
             ></iframe>
         </Box>
     );

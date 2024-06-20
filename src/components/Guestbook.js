@@ -31,7 +31,7 @@ const Guestbook = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name && message) {
-            const newEntry = { name, message };
+            const newEntry = { name, message, date: new Date().toISOString() };
 
             fetch(apiUrl, {
                 method: 'POST',
@@ -54,9 +54,20 @@ const Guestbook = () => {
         setPage(value);
     };
 
+    const formatDateTime = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear()).slice(-2);
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+        return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
+    };
+
     return (
         <Container maxWidth="sm" sx={{
-            maxHeight: 'calc(100vh - 2em)', // Adjusting for any external padding/margins
+            // maxHeight: 'calc(100vh - 2em)', // Adjusting for any external padding/margins
             overflow: 'auto',    // Allow internal scrolling if needed
             display: 'flex',
             flexDirection: 'column'
@@ -87,7 +98,7 @@ const Guestbook = () => {
                     <CardContent sx={{ padding: '8px' }}>
                         <Typography variant="h6" align="center" noWrap>{entry.name}</Typography>
                         <Typography variant="body1" align="center" noWrap>{entry.message}</Typography>
-                        <Typography variant="body2" color="textSecondary" align="center" noWrap>{new Date(entry.date).toLocaleString()}</Typography>
+                        <Typography variant="body2" color="textSecondary" align="center" noWrap>{formatDateTime(entry.date)}</Typography>
                     </CardContent>
                 </Card>
             ))}

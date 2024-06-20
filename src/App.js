@@ -1,88 +1,56 @@
 import React from 'react';
 import Guestbook from './components/Guestbook';
-import EmbedSpotify from './components/EmbedSpotify';
-import EmbedYouTube from './components/EmbedYouTube';
-import {createTheme, ThemeProvider, Grid} from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
+import { Box, ThemeProvider } from "@mui/material";
+import Grid from '@mui/material/Unstable_Grid2';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import EmailIcon from '@mui/icons-material/Email';
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#808080',
-        },
-        background: {
-            default: 'transparent',
-        },
-    },
-    typography: {
-        fontFamily: '"Roboto Mono", "Courier New", monospace',
-        fontSize: 12,
-    },
-    components: {
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    borderRadius: 0,
-                    textTransform: 'none',
-                },
-            },
-        },
-        MuiTextField: {
-            styleOverrides: {
-                root: {
-                    borderRadius: 0,
-                    marginBottom: '1em',
-                },
-            },
-        },
-        MuiCard: {
-            styleOverrides: {
-                root: {
-                    marginBottom: '1em',
-                    padding: '1em',
-                    borderRadius: 0,
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                },
-            },
-        },
-    },
-});
+import theme from './theme';
 
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline/>
-            <main style={{
-                width: '100%',
-                margin: '0',
-                padding: '0',
-                minHeight: '100vh', // Use full viewport height
-                display: 'flex',
-                flexDirection: 'column',
-            }}>
-                <Grid container spacing={0} style={{ minHeight: 'calc(100vh - 1.5em)', overflow: 'hidden' }}>
-                    <Grid item xs={12} md={3} style={{
-                        padding: '1em',
-                        display: 'flex',  // Make the grid item a flex container
-                        flexDirection: 'column',  // Stack children vertically
-                        justifyContent: 'center',  // Center children vertically
-                        alignItems: 'center',  // Center children horizontally
-                        height: '100%'  // Ensure the grid item takes up full height
-                    }}>
-                        <div style={{ maxWidth: '560px', width: '100%' }}>
-                            <EmbedSpotify albumUrl="5VmKMLTrpNTaCjR8qxavz9" />
-                            <EmbedYouTube videoUrl="dQw4w9WgXcQ" />
-                        </div>
+            <CssBaseline />
+            <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container sx={{ height: '100%', justifyContent: 'center', alignItems: 'center' }} name="MainContentBox">
+                        <Grid xs>
+                            <iframe
+                                src={`https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9`}
+                                width="100%"
+                                height="680px" // specific height so that all songs are displayed
+                                allow="encrypted-media"
+                                allowFullScreen
+                                title="Spotify"
+                            ></iframe>
+                        </Grid>
+                        <Grid xs={7}>
+                            <Guestbook />
+                        </Grid>
+                        <Grid xs>
+                            <Box sx={{ position: 'relative', width: '100%', paddingTop: '56.25%' /* 16:9 aspect ratio */ }}>
+                                <iframe
+                                    src={`https://www.youtube.com/embed/dQw4w9WgXcQ`}
+                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+                                    title="YouTube"
+                                ></iframe>
+                            </Box>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} md={9} style={{ padding: '1em' }}>
-                        <Guestbook />
-                    </Grid>
-                </Grid>
-            </main>
-
+                </Box>
+                <Box component="footer" sx={{ bgcolor: 'primary.main', color: 'white', p: 2, textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ mx: 1 }}>
+                        <InstagramIcon sx={{ cursor: 'pointer' }} onClick={() => window.open('https://www.instagram.com', '_blank')} />
+                    </Box>
+                    <Box sx={{ mx: 1 }}>
+                        <EmailIcon sx={{ cursor: 'pointer' }} onClick={() => window.location = 'mailto:your-email@example.com'} />
+                    </Box>
+                </Box>
+            </Box>
         </ThemeProvider>
-    )
-        ;
+    );
 }
 
 export default App;
