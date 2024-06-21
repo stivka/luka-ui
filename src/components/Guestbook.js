@@ -96,9 +96,9 @@ const Guestbook = () => {
             {entries.map((entry) => (
                 <Card key={entry.id} sx={{ mb: 2, borderRadius: 0 }}>
                     <CardContent sx={{ padding: '8px' }}>
-                        <Typography variant="h6" align="center" noWrap>{entry.name}</Typography>
-                        <Typography variant="body1" align="center" noWrap>{entry.message}</Typography>
-                        <Typography variant="body2" color="textSecondary" align="center" noWrap>{formatDateTime(entry.date)}</Typography>
+                        <Typography variant="h6" align="center" >{entry.name}</Typography>
+                        <Typography variant="body1" align="center">{entry.message}</Typography>
+                        <Typography variant="body2" color="textSecondary" align="center">{formatDateTime(entry.date)}</Typography>
                     </CardContent>
                 </Card>
             ))}
