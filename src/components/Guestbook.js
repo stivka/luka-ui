@@ -66,13 +66,11 @@ const Guestbook = () => {
     };
 
     return (
-        <Container maxWidth="sm" sx={{
-            maxHeight: 'calc(100vh - 100px)', // Adjusting for header/footer and other content
-            overflow: 'auto',    // Allow internal scrolling if needed
+        <Container sx={{
             display: 'flex',
             flexDirection: 'column'
         }}>
-            <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mb: 2 }}>
                 <TextField
                     label="Name"
                     value={name}
@@ -80,6 +78,7 @@ const Guestbook = () => {
                     fullWidth
                     required
                     margin="normal"
+                    inputProps={{maxLength: 50}}
                 />
                 <TextField
                     label="Message"
@@ -90,15 +89,17 @@ const Guestbook = () => {
                     multiline
                     rows={4}
                     margin="normal"
+                    inputProps={{maxLength: 500}}
+                    helperText={`${message.length}/500`}
                 />
                 <Button variant="contained" color="primary" type="submit" fullWidth>Write</Button>
             </Box>
             {entries.map((entry) => (
-                <Card key={entry.id} sx={{ mb: 2, borderRadius: 0 }}>
-                    <CardContent sx={{ padding: '8px' }}>
+                <Card key={entry.id} sx={{ mb: 2, borderRadius: 0, width: '100%' }}>
+                    <CardContent sx={{ padding: '4px' }}>
                         <Typography variant="h6" align="center" >{entry.name}</Typography>
-                        <Typography variant="body1" align="center">{entry.message}</Typography>
                         <Typography variant="body2" color="textSecondary" align="center">{formatDateTime(entry.date)}</Typography>
+                        <Typography variant="body1" align="center">{entry.message}</Typography>
                     </CardContent>
                 </Card>
             ))}
