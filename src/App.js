@@ -16,7 +16,7 @@ function App() {
                 flexDirection: 'column',
                 background: theme.palette.background.paper
             }}>
-                <Box name="" sx={{flexGrow: 1}}>
+                <Box name="" sx={{flexGrow: 1}} mb={'20px'}>
                     <Grid container sx={{height: '100%', justifyContent: 'center', alignItems: 'center'}}
                           name="MainContentBox">
                         <Grid item xs={12} sm={8} lg={3} name="SpotifyPlayer" sx={{
@@ -57,13 +57,15 @@ function App() {
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={8} lg={5} name="YouTubePlayer">
-                            <Box sx={{position: 'relative', width: '100%'}}>
+                            <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px'}}>
                                 <img src="/kyynal_64x64.gif" alt="Candle"
-                                     style={{width: '200px', height: '200px', flexShrink: 0}}/>
+                                     style={{width: '100px', height: '100px', flexShrink: 0}}/>
                                 <img src="/newspaper_cutout_eyes.svg" alt="Eyes"
                                      style={{width: '400px', height: '200px', flexShrink: 0}}/>
                                 <img src="/kyynal_64x64.gif" alt="Candle"
-                                     style={{width: '200px', height: '200px', flexShrink: 0}}/>
+                                     style={{width: '100px', height: '100px', flexShrink: 0}}/>
+                            </Box>
+                            <Box sx={{width: '100%', display: 'flex', justifyContent: 'center'}}>
                                 <figure
                                     style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                     <iframe
@@ -77,23 +79,36 @@ function App() {
                                     ></iframe>
                                 </figure>
                             </Box>
+                            <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px'}}>
+                                <img src="/smoking_greek_godess_500x500.gif" alt="Candle"
+                                     style={{width: '500px', height: '500px', flexShrink: 0}}/>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Box>
-                <Box component="footer" sx={{ bgcolor: 'black', color: 'white', p: 2, textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} name="Footer">
-                    <Box sx={{ mx: 1 }}>
+                <Box component="footer" sx={{
+                    background: theme.palette.background,
+                    color: 'white',
+                    p: 4,
+                    textAlign: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '200px'
+                }} name="Footer">
+                    <Box sx={{mx: 2}}>
                         <img
                             src="/instagram_button_svg.svg"
                             alt="Instagram"
-                            style={{ cursor: 'pointer', width: '40px', height: '40px' }}
+                            style={{cursor: 'pointer', width: '200px', height: '200px'}}
                             onClick={() => window.open('https://www.instagram.com', '_blank')}
                         />
                     </Box>
-                    <Box sx={{ mx: 1 }}>
+                    <Box sx={{mx: 2}}>
                         <img
                             src="/email_button_svg.svg"
                             alt="Email"
-                            style={{ cursor: 'pointer', width: '40px', height: '40px' }}
+                            style={{cursor: 'pointer', width: '200px', height: '200px'}}
                             onClick={() => window.location = 'mailto:your-email@example.com'}
                         />
                     </Box>
