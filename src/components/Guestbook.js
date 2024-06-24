@@ -70,7 +70,7 @@ const Guestbook = () => {
             display: 'flex',
             flexDirection: 'column'
         }}>
-            <Box component="form" onSubmit={handleSubmit} sx={{ mb: 2 }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{  p: 2, bgcolor: 'rgba(255, 255, 255, 0.8)', mb: 2 }}>
                 <TextField
                     label="Name"
                     value={name}
@@ -78,6 +78,7 @@ const Guestbook = () => {
                     fullWidth
                     required
                     margin="normal"
+                    sx={{ mb: 2, borderColor: 'white' }}
                     inputProps={{maxLength: 50}}
                 />
                 <TextField
@@ -89,6 +90,7 @@ const Guestbook = () => {
                     multiline
                     rows={4}
                     margin="normal"
+                    sx={{ mb: 2, borderColor: 'white' }}
                     inputProps={{maxLength: 500}}
                     helperText={`${message.length}/500`}
                 />
