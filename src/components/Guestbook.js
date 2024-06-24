@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Button, Container, TextField, Typography, Card, CardContent, Pagination } from '@mui/material';
+import React, {useState, useEffect} from 'react';
+import {Box, Button, Container, TextField, Typography, Card, CardContent, Pagination, useTheme} from '@mui/material';
 
 const Guestbook = () => {
     const [entries, setEntries] = useState([]);
@@ -31,7 +31,7 @@ const Guestbook = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name && message) {
-            const newEntry = { name, message, date: new Date().toISOString() };
+            const newEntry = {name, message, date: new Date().toISOString()};
 
             fetch(apiUrl, {
                 method: 'POST',
@@ -42,7 +42,7 @@ const Guestbook = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    setEntries([data, ...entries.slice(0, entriesPerPage-1)]);
+                    setEntries([data, ...entries.slice(0, entriesPerPage - 1)]);
                     setName('');
                     setMessage('');
                 })
@@ -65,12 +65,21 @@ const Guestbook = () => {
         return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
     };
 
+    const theme = useTheme();
+
     return (
         <Container sx={{
             display: 'flex',
             flexDirection: 'column'
         }}>
-            <Box component="form" onSubmit={handleSubmit} sx={{  p: 2, bgcolor: 'rgba(255, 255, 255, 0.8)', mb: 2 }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{
+                p: 2,
+                backgroundColor: theme.palette.spotifyLightGrey.main,
+                color: 'white',
+                mb: 2,
+                borderRadius: 1,
+                boxShadow: 1
+            }}>
                 <TextField
                     label="Name"
                     value={name}
@@ -78,8 +87,27 @@ const Guestbook = () => {
                     fullWidth
                     required
                     margin="normal"
-                    sx={{ mb: 2, borderColor: 'white' }}
-                    inputProps={{maxLength: 50}}
+                    sx={{
+                        mb: 2,
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'white',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'white',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'white',
+                            },
+                        },
+                        '& .MuiInputBase-input': {
+                            color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                            color: 'white',
+                        },
+                    }}
+                    inputProps={{ maxLength: 50 }}
                 />
                 <TextField
                     label="Message"
@@ -90,23 +118,53 @@ const Guestbook = () => {
                     multiline
                     rows={4}
                     margin="normal"
-                    sx={{ mb: 2, borderColor: 'white' }}
-                    inputProps={{maxLength: 500}}
+                    sx={{
+                        mb: 2,
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'white',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'white',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'white',
+                            },
+                        },
+                        '& .MuiInputBase-input': {
+                            color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                            color: 'white',
+                        },
+                    }}
+                    inputProps={{maxLength: 500, color: 'white'}}
                     helperText={`${message.length}/500`}
+                    FormHelperTextProps={{
+                        sx: {
+                            color: 'white',
+                        }
+                    }}
                 />
-                <Button variant="contained" color="primary" type="submit" fullWidth>Write</Button>
+                <Button variant="contained" color="primary" type="submit" fullWidth sx={{color: '#000428'}}>Write</Button>
             </Box>
             {entries.map((entry) => (
-                <Card key={entry.id} sx={{ mb: 2, borderRadius: 0, width: '100%' }}>
-                    <CardContent sx={{ padding: '4px' }}>
-                        <Typography variant="h6" align="center" >{entry.name}</Typography>
-                        <Typography variant="body2" color="textSecondary" align="center">{formatDateTime(entry.date)}</Typography>
+                <Card key={entry.id} sx={{mb: 2, borderRadius: 0, width: '100%'}}>
+                    <CardContent sx={{
+                        padding: '4px',
+                        backgroundColor: theme.palette.spotifyDarkGrey.main,
+                        color: 'white',
+                        }}>
+                        <Typography variant="h6" align="center">{entry.name}</Typography>
+                        <Typography variant="body2" color="white"
+                                    align="center">{formatDateTime(entry.date)}</Typography>
                         <Typography variant="body1" align="center">{entry.message}</Typography>
                     </CardContent>
                 </Card>
             ))}
             {totalPages > 1 && (
-                <Pagination count={totalPages} page={page} onChange={handlePageChange} color="primary" sx={{ justifyContent: 'center', display: 'flex', my: 2 }} />
+                <Pagination count={totalPages} page={page} onChange={handlePageChange} color="primary"
+                            sx={{justifyContent: 'center', display: 'flex', my: 2}}/>
             )}
         </Container>
     );
