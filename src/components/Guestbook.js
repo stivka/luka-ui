@@ -70,7 +70,8 @@ const Guestbook = () => {
     return (
         <Container sx={{
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            overflowY: 'auto'
         }}>
             <Box component="form" onSubmit={handleSubmit} sx={{
                 p: 2,
@@ -78,7 +79,7 @@ const Guestbook = () => {
                 color: 'white',
                 mb: 2,
                 borderRadius: 1,
-                boxShadow: 1
+                boxShadow: 1,
             }}>
                 <TextField
                     label="Name"

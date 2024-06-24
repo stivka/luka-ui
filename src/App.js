@@ -14,13 +14,13 @@ function App() {
                 height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                background: theme.palette.background.paper
+                background: theme.palette.background.paper,
             }}>
                 <Box name="" sx={{flexGrow: 1}} mb={'20px'}>
-                    <Grid container sx={{height: '100%', justifyContent: 'center', alignItems: 'center'}}
+                    <Grid container sx={{height: '100%', justifyContent: 'center', alignItems: 'center', overflow: 'hidden'}}
                           name="MainContentBox">
                         <Grid item xs={12} sm={8} lg={3} name="SpotifyPlayer" sx={{
-                            maxHeight: '100vh',
+                            maxHeight: '100%',
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center'
@@ -41,22 +41,16 @@ function App() {
                             </Box>
                             <img src="/magicball_200x200.gif" alt="Magic Ball"
                                  style={{width: '200px', height: '200px', flexShrink: 0, marginBottom: '16px'}}/>
-
                         </Grid>
                         <Grid item xs={12} sm={12} lg={4} name="GuestbookContainer" sx={{
-                            maxHeight: '100vh',
-                            overflowY: 'auto',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center'
-                        }}>
+                            display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%', overflow: 'hidden'}}>
                             <img src="/guestbook_400x100.gif" alt="Guestbook Banner"
                                  style={{width: '440px', height: '120px', flexShrink: 0, marginBottom: '16px'}}/>
-                            <Box sx={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-                                <Guestbook/>
+                            <Box sx={{ width: '100%', flex: 1, overflowY: 'auto', display: 'flex', justifyContent: 'center'}}>
+                                <Guestbook />
                             </Box>
                         </Grid>
-                        <Grid item xs={12} sm={8} lg={5} name="YouTubePlayer">
+                        <Grid item xs={12} sm={8} lg={5} name="YouTubePlayer" sx={{height: '100%', overflow: 'hidden'}}>
                             <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px'}}>
                                 <img src="/kyynal_64x64.gif" alt="Candle"
                                      style={{width: '100px', height: '100px', flexShrink: 0}}/>
