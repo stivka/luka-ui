@@ -70,18 +70,16 @@ const Guestbook = () => {
     const theme = useTheme();
 
     return (
-        <Container sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            overflowY: 'auto'
-        }}>
+        <Container>
             <Box component="form" onSubmit={handleSubmit} sx={{
+                // padding 2
                 p: 2,
                 backgroundColor: theme.palette.spotifyLightGrey.main,
                 color: 'white',
+                // mb = margin bottom
                 mb: 2,
-                borderRadius: 1,
-                boxShadow: 1,
+                borderRadius: 0,
+                boxShadow: 0,
             }}>
                 <TextField
                     label="Name"
@@ -149,7 +147,7 @@ const Guestbook = () => {
                         }
                     }}
                 />
-                <Button variant="contained" color="primary" type="submit" fullWidth sx={{color: '#000428'}}>Write</Button>
+                <Button variant="contained" color="primary" type="submit" fullWidth sx={{color: '#000428', borderRadius: 0}}>Write</Button>
             </Box>
             {entries.map((entry) => (
                 <Card key={entry.id} sx={{mb: 2, borderRadius: 0, width: '100%'}}>
