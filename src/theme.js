@@ -1,4 +1,4 @@
-import {createTheme} from "@mui/material";
+import { createTheme } from '@mui/material';
 
 const theme = createTheme({
     palette: {
@@ -14,7 +14,7 @@ const theme = createTheme({
         background: {
             default: '#000428', // Fallback color
             paper: 'linear-gradient(to right, #000428, #004e92)', // Gradient for other background uses
-            footer: 'linear-gradient(to left, #000428, #004e92)'
+            footer: 'linear-gradient(to left, #000428, #004e92)',
         },
     },
     typography: {
@@ -22,6 +22,31 @@ const theme = createTheme({
         fontSize: 16,
     },
     components: {
+        MuiCssBaseline: {
+            styleOverrides: {
+                body: {
+                    cursor: 'url(/default_cursor.png), auto',
+                },
+                '*:hover': {
+                    cursor: 'url(/hover_cursor.png), auto',
+                },
+                'a:hover': {
+                    cursor: 'url(/hover_cursor.png), pointer',
+                },
+                'button:hover': {
+                    cursor: 'url(/hover_cursor.png), pointer',
+                },
+                'iframe': {
+                    cursor: 'url(/default_cursor.png), auto',
+                },
+                'iframe:hover': {
+                    cursor: 'url(/hover_cursor.png), auto',
+                },
+                '*::-webkit-scrollbar': {
+                    display: 'none', // Hides the scrollbar
+                },
+            },
+        },
         MuiPaginationItem: {
             styleOverrides: {
                 root: {

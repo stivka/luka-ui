@@ -1,0 +1,20 @@
+all edges to be not rounded
+Add border radius 0 to theme and apply from theme
+
+write funny guestbook entries
+
+Multiple youtube iframes for the same video. Repeating design?
+
+Pictures of Luka?
+
+Äge scrollbar guestbooki jaoks
+
+Counterile aga pilt
+
+add links to email and instagram
+
+fix protruding column thre last elements
+
+hover
+
+resize Spotify?

@@ -1,17 +1,10 @@
 import React from 'react';
-import {Box, Paper} from '@mui/material';
-import {styled} from '@mui/system';
+import {Box} from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid2 import
 import Guestbook from "./Guestbook";
 import VisitorCounter from "./VisitorCounter";
 
-const Item = styled(Paper)(({color}) => ({
-    padding: '16px',
-    textAlign: 'center',
-    backgroundColor: color,
-}));
-
-export default function Scratch() {
+export default function MainApp() {
     return (
         <Box sx={{flexGrow: 1, height: '100vh'}}>
             {/*Every child should say that they take up the max of the height their parent allows?*/}
@@ -32,7 +25,7 @@ export default function Scratch() {
                             title="Spotify"
                         ></iframe>
                     </Grid>
-                    <Grid xs={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/magicball_200x200.gif" alt="Magic Ball"/>
                     </Grid>
                 </Grid>
@@ -45,14 +38,17 @@ export default function Scratch() {
 
                 {/* Column 3 */}
                 <Grid container xs={12} md={5} sx={{height: '100%'}}>
-                    <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img src="/kyynal.gif" alt="Candle1" style={{ maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto' }} />
+                    <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <img src="/kyynal.gif" alt="Candle1"
+                             style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
-                    <Grid xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img src="/newspaper_cutout_eyes.svg" alt="Eyes" style={{ maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto' }} />
+                    <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <img src="/newspaper_cutout_eyes.svg" alt="Eyes"
+                             style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/>
                     </Grid>
-                    <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img src="/kyynal.gif" alt="Candle1" style={{ maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto' }} />
+                    <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <img src="/kyynal.gif" alt="Candle1"
+                             style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={12}>
                         <iframe
@@ -65,15 +61,15 @@ export default function Scratch() {
                             title="YouTube"
                         ></iframe>
                     </Grid>
-                    <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/instagram_button.svg" alt="Eyes"
-                             style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/>
+                             style={{width: '100%', height: 'auto'}}/>
                     </Grid>
-                    <Grid xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/smoking_greek_godess_500x500.gif" alt="Eyes"
-                             style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/>
+                             style={{maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto'}}/>
                     </Grid>
-                    <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/email_button_svg.svg" alt="Eyes"
                              style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/>
                     </Grid>
