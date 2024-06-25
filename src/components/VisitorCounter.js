@@ -31,15 +31,13 @@ const VisitorCounter = () => {
 
     return (
         <Box sx={{
-            p: 2,
             backgroundColor: theme.palette.spotifyLightGrey.main,
             color: 'white',
-            mb: 2,
-            borderRadius: 1,
-            boxShadow: 1,
+            borderRadius: 0,
+            boxShadow: 0,
             textAlign: 'center'
         }}>
-            <Typography variant="h4">Visitor Count: {count}</Typography>
+            <Typography variant="h5">Visitor Count: {count}</Typography>
         </Box>
     );
 };

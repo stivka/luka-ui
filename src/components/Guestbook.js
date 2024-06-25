@@ -71,6 +71,8 @@ const Guestbook = () => {
 
     return (
         <Container>
+            <img src="/guestbook_400x100.gif" alt="Guestbook Banner"
+                 style={{width: '100%', height: '100%', flexShrink: 0, padding: 8}}/>
             <Box component="form" onSubmit={handleSubmit} sx={{
                 // padding 2
                 p: 2,
@@ -108,7 +110,7 @@ const Guestbook = () => {
                             color: 'white',
                         },
                     }}
-                    inputProps={{ maxLength: 50 }}
+                    inputProps={{maxLength: 50}}
                 />
                 <TextField
                     label="Message"
@@ -147,7 +149,8 @@ const Guestbook = () => {
                         }
                     }}
                 />
-                <Button variant="contained" color="primary" type="submit" fullWidth sx={{color: '#000428', borderRadius: 0}}>Write</Button>
+                <Button variant="contained" color="primary" type="submit" fullWidth
+                        sx={{color: '#000428', borderRadius: 0}}>Write</Button>
             </Box>
             {entries.map((entry) => (
                 <Card key={entry.id} sx={{mb: 2, borderRadius: 0, width: '100%'}}>
@@ -155,7 +158,7 @@ const Guestbook = () => {
                         padding: '4px',
                         backgroundColor: theme.palette.spotifyDarkGrey.main,
                         color: 'white',
-                        }}>
+                    }}>
                         <Typography variant="h6" align="center">{entry.name}</Typography>
                         <Typography variant="body2" color="white"
                                     align="center">{formatDateTime(entry.date)}</Typography>
