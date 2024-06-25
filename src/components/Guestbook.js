@@ -8,9 +8,11 @@ const Guestbook = () => {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const entriesPerPage = 5;
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const baseUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = `${baseUrl}/guestbook`;
 
     useEffect(() => {
+        console.log(`${apiUrl}?page=${page - 1}&limit=${entriesPerPage}`);
         fetch(`${apiUrl}?page=${page - 1}&limit=${entriesPerPage}`)
             .then(response => response.json())
             .then(data => {
