@@ -25,22 +25,22 @@ const theme = createTheme({
         MuiCssBaseline: {
             styleOverrides: {
                 body: {
-                    cursor: 'url(/default_cursor.png), auto',
+                    cursor: 'url(/cursor2_64x64.png), auto',
                 },
                 '*:hover': {
-                    cursor: 'url(/hover_cursor.png), auto',
+                    cursor: 'url(/cursor2_64x64.png), auto',
                 },
                 'a:hover': {
-                    cursor: 'url(/hover_cursor.png), pointer',
+                    cursor: 'url(/cursor2_64x64.png), pointer',
                 },
                 'button:hover': {
-                    cursor: 'url(/hover_cursor.png), pointer',
+                    cursor: 'url(/cursor2_64x64.png), pointer',
                 },
                 'iframe': {
-                    cursor: 'url(/default_cursor.png), auto',
+                    cursor: 'url(/cursor2_64x64.png), auto',
                 },
                 'iframe:hover': {
-                    cursor: 'url(/hover_cursor.png), auto',
+                    cursor: 'url(/cursor2_64x64.png), auto',
                 },
                 '*::-webkit-scrollbar': {
                     display: 'none', // Hides the scrollbar

@@ -71,7 +71,7 @@ const Guestbook = () => {
 
     return (
         <Container>
-            <img src="/guestbook_400x100.gif" alt="Guestbook Banner"
+            <img src="/guestbook_500x200.gif" alt="Guestbook Banner"
                  style={{width: '100%', height: '100%', flexShrink: 0, padding: 8}}/>
             <Box component="form" onSubmit={handleSubmit} sx={{
                 // padding 2

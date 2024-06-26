@@ -39,7 +39,7 @@ export default function MainApp() {
                 {/* Column 3 */}
                 <Grid container xs={12} md={5} sx={{height: '100%'}}>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/kyynal.gif" alt="Candle1"
+                        <img src="/kyynal_299x500.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -47,7 +47,7 @@ export default function MainApp() {
                              style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/kyynal.gif" alt="Candle1"
+                        <img src="/kyynal_299x500.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={12}>
