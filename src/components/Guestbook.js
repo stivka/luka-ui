@@ -82,6 +82,7 @@ const Guestbook = () => {
                 mb: 2,
                 borderRadius: 0,
                 boxShadow: 0,
+                width: '100%'
             }}>
                 <TextField
                     label="Name"
