@@ -27,21 +27,6 @@ const theme = createTheme({
                 body: {
                     cursor: 'url(/cursor2_64x64.png), auto',
                 },
-                '*:hover': {
-                    cursor: 'url(/cursor2_64x64.png), auto',
-                },
-                'a:hover': {
-                    cursor: 'url(/cursor2_64x64.png), pointer',
-                },
-                'button:hover': {
-                    cursor: 'url(/cursor2_64x64.png), pointer',
-                },
-                'iframe': {
-                    cursor: 'url(/cursor2_64x64.png), auto',
-                },
-                'iframe:hover': {
-                    cursor: 'url(/cursor2_64x64.png), auto',
-                },
                 '*::-webkit-scrollbar': {
                     display: 'none', // Hides the scrollbar
                 },

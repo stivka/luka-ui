@@ -26,6 +26,9 @@ export default function MainApp() {
                         ></iframe>
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <img src="/gummibears.svg" alt="Magic Ball" style={{width: '100%', height: 'auto', flexShrink: 0, padding: 8}}/>/>
+                    </Grid>
+                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/magicball_200x200.gif" alt="Magic Ball"/>
                     </Grid>
                 </Grid>
