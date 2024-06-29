@@ -3,6 +3,7 @@ import {Box} from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid2 import
 import Guestbook from "./Guestbook";
 import VisitorCounter from "./VisitorCounter";
+import CutoutEyes from "./CutoutEyes";
 
 export default function MainApp() {
     return (
@@ -46,8 +47,9 @@ export default function MainApp() {
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/newspaper_cutout_eyes.svg" alt="Eyes"
-                             style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/>
+                        {/* <img src="/newspaper_cutout_eyes.svg" alt="Eyes"
+                             style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/> */}
+                        <CutoutEyes />
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/kyynal_299x500.gif" alt="Candle1"
