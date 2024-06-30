@@ -48,8 +48,6 @@ export default function MainApp() {
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        {/* <img src="/newspaper_cutout_eyes.svg" alt="Eyes"
-                             style={{maxWidth: '100%', maxHeight: '100%', width: '100%', height: 'auto'}}/> */}
                         <CutoutEyes />
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
