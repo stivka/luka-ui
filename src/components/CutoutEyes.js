@@ -35,35 +35,35 @@ export default function CutoutEyes() {
       return () => document.removeEventListener('mousemove', handleMouseMove);
     }, [isMobile, faceX, faceY]);
   
-    return (
-      <Box sx={{ display: 'grid', placeItems: 'center', minWidth: '100vw', minHeight: '100vh', position: 'relative' }}>
-        <img src="/cutout-eyes.png" alt="Eyes" ref={faceRef} />
-        {!isMobile && (
-        <Box sx={{ position: 'absolute' }}>
+    const eyeStyle = (leftPercentage, topPercentage) => ({
+    position: 'absolute',
+    left: `${leftPercentage}%`,
+    top: `${topPercentage}%`,
+    width: '5%', // Make the eye size responsive
+    height: 'auto',
+    transform: `rotate(${angleDeg}deg)`,
+    transformOrigin: 'center center'
+  });
+
+  return (
+    <Box sx={{ position: 'relative', width: '100%', height: 'auto' }}>
+      <img src="/cutout-eyes.png" alt="Eyes" ref={faceRef} style={{ width: '100%', height: 'auto' }} />
+      {!isMobile && (
+        <>
           <img
             src="/eye.png"
-            alt="Eye" 
-            style={{ 
-              position: 'absolute', 
-              left: -58, 
-              top: -5,  
-              transform: `rotate(${angleDeg}deg)` 
-            }}
-            ref={leftEyeRef} 
+            alt="Eye"
+            style={eyeStyle(30, 42)} // Adjust these percentages based on the face image
+            ref={leftEyeRef}
           />
-          <img 
+          <img
             src="/eye.png"
-            alt="Eye" 
-            style={{ 
-              position: 'absolute', 
-              left: 89, 
-              top: -7, 
-              transform: `rotate(${angleDeg}deg)` 
-            }}
+            alt="Eye"
+            style={eyeStyle(80, 40)} // Adjust these percentages based on the face image
             ref={rightEyeRef}
           />
-        </Box>
-        )}
-      </Box>
-    );
+        </>
+      )}
+    </Box>
+  );
 }
