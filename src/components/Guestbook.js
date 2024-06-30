@@ -72,7 +72,7 @@ const Guestbook = () => {
     return (
         <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
             <img src="/guestbook_500x200.gif" alt="Guestbook Banner"
-                 style={{width: '80%', height: 'auto', flexShrink: 0, padding: 8}}/>
+                 style={{width: '60%', height: 'auto', flexShrink: 0, padding: 8}}/>
             <Box component="form" onSubmit={handleSubmit} sx={{
                 // padding 2
                 p: 2,
