@@ -27,7 +27,8 @@ export default function MainApp() {
                         ></iframe>
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/gummibears.svg" alt="Magic Ball" style={{width: '100%', height: 'auto', flexShrink: 0, padding: 8}}/>/>
+                        <img src="/gummibears.svg" alt="Magic Ball"
+                             style={{width: '100%', height: 'auto', flexShrink: 0, padding: 8}}/>/>
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/magicball_200x200.gif" alt="Magic Ball"/>
@@ -41,7 +42,7 @@ export default function MainApp() {
                 </Grid>
 
                 {/* Column 3 */}
-                <Grid container xs={12} md={5} sx={{height: '100%'}}>
+                <Grid container xs={12} md={5} sx={{height: '100%', overflow: 'hidden'}}>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/kyynal_299x500.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
@@ -68,7 +69,7 @@ export default function MainApp() {
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/instagram_button.svg" alt="Eyes"
-                             style={{width: '100%', height: 'auto'}}/>
+                             style={{maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/smoking_greek_godess_500x500.gif" alt="Eyes"
