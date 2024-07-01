@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
 
 const Monitor = () => {
-	const [switchedOn, setSwitchedOn] = useState(true);
+	const [switchedOn, setSwitchedOn] = useLocalStorage("monitor-on", false);
 
 	return (
 		<Box

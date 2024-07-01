@@ -7,11 +7,11 @@ const useDrag = () => {
 	const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
 	const handlePointerDown = useCallback(
-		(e) => {
+		(event) => {
 			setIsDragging(true);
 			setDragStart({
-				x: e.clientX - position.x,
-				y: e.clientY - position.y,
+				x: event.clientX - position.x,
+				y: event.clientY - position.y,
 			});
 		},
 		[position],
@@ -20,11 +20,11 @@ const useDrag = () => {
 	const handlePointerUp = useCallback(() => setIsDragging(false), []);
 
 	const handlePointerMove = useCallback(
-		(e) => {
+		(event) => {
 			if (isDragging) {
 				setPosition({
-					x: e.clientX - dragStart.x,
-					y: e.clientY - dragStart.y,
+					x: event.clientX - dragStart.x,
+					y: event.clientY - dragStart.y,
 				});
 			}
 		},
