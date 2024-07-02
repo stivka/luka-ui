@@ -1,5 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+/**
+ * Hook for dragging elements.
+ *
+ * @returns {Object} Object containing the following properties:
+ *   - ref: Ref object for the element to be dragged. Assign this to the draggable element's ref prop.
+ *   - position: Current position of the element. Assign this to the draggable 
+ * element's CSS prop: { transform: `translateX(${position.x}px) translateY(${position.y}px)` } 
+ *   - startDragging: Function to start dragging the element. Assign this to the draggable element's 
+ * onPointerDown prop. Does not need to be container, can only be header or something.
+ *   - isDragging: Boolean indicating whether the element is being dragged
+ */
 const useDrag = () => {
 	const ref = useRef(null);
 	const [isDragging, setIsDragging] = useState(false);

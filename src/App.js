@@ -14,7 +14,7 @@ import Screen from "./pages/Screen";
 import { paths } from "./paths";
 import theme from "./theme";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
 	return (
@@ -26,7 +26,7 @@ function App() {
 						<Routes>
 							<Route path={paths.login} element={<Login />} />
 							<Route path={paths.index} element={<MainApp />} />
-							<Route path={paths.screen} element={<Screen />} />
+							<Route path={paths.monitor} element={<Screen />} />
 							<Route path="*" element={<Navigate to={paths.index} />} />
 						</Routes>
 					</Router>
