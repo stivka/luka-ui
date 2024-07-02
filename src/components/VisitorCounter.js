@@ -56,6 +56,17 @@ const VisitorCounter = () => {
 			>
 				{count}
 			</Box>
+			<img
+				src="/visitor-count-sign.png"
+				alt="Muuse"
+				style={{
+					width: "48%",
+					height: "auto",
+					position: "absolute",
+					top: "6%",
+					left: "40%",
+				}}
+			/>
 		</Box>
 	);
 };
