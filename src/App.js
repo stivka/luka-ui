@@ -7,24 +7,30 @@ import {
 	BrowserRouter as Router,
 	Routes,
 } from "react-router-dom";
-import Login from "./components/Login";
-import MainApp from "./components/MainApp";
-import theme from "./theme"; // Ensure you have a theme file
+import { SessionProvider } from "./contexts/SessionContext";
+import Login from "./pages/Login";
+import MainApp from "./pages/MainApp";
+import Screen from "./pages/Screen";
+import { paths } from "./paths";
+import theme from "./theme";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<QueryClientProvider client={queryClient}>
 				<CssBaseline />
-				<Router>
-					<Routes>
-						<Route path="/" element={<Login />} />
-						<Route path="/app" element={<MainApp />} />
-						<Route path="*" element={<Navigate to="/" />} />
-					</Routes>
-				</Router>
+				<SessionProvider>
+					<Router>
+						<Routes>
+							<Route path={paths.login} element={<Login />} />
+							<Route path={paths.index} element={<MainApp />} />
+							<Route path={paths.screen} element={<Screen />} />
+							<Route path="*" element={<Navigate to={paths.index} />} />
+						</Routes>
+					</Router>
+				</SessionProvider>
 			</QueryClientProvider>
 		</ThemeProvider>
 	);
