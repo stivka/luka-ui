@@ -5,7 +5,8 @@ import { useGetVisitorCount } from "../providers/backendApi";
 const VisitorCounter = () => {
 	const { data: count } = useGetVisitorCount();
 
-	<Box
+	return (
+		<Box
 			sx={{
 				position: "absolute",
 				top: 0,
