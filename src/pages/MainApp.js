@@ -1,20 +1,12 @@
 import { Box } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid2 import
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import CutoutEyes from "../components/CutoutEyes";
 import Guestbook from "../components/Guestbook";
 import VisitorCounter from "../components/VisitorCounter";
-import useSession from '../hooks/useSession';
-import { paths } from '../paths';
+import useEnsureSession from '../hooks/useEnsureSession';
 
 export default function MainApp() {
-    const navigate = useNavigate();
-    const { isAuthenticated } = useSession();
-
-    if (!isAuthenticated) {
-        navigate(paths.login);
-    }
+    useEnsureSession();
 
     return (
         <Box sx={{flexGrow: 1, height: '100vh'}}>
