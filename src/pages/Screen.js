@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
-import Monitor from "./components/Monitor";
+import Monitor from "../components/Monitor";
 
 export default function MainApp() {
 	return (

@@ -1,11 +1,21 @@
-import React from 'react';
-import {Box} from '@mui/material';
+import { Box } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid2 import
-import Guestbook from "./Guestbook";
-import VisitorCounter from "./VisitorCounter";
-import CutoutEyes from "./CutoutEyes";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import CutoutEyes from "../components/CutoutEyes";
+import Guestbook from "../components/Guestbook";
+import VisitorCounter from "../components/VisitorCounter";
+import useSession from '../hooks/useSession';
+import { paths } from '../paths';
 
 export default function MainApp() {
+    const navigate = useNavigate();
+    const { isAuthenticated } = useSession();
+
+    if (!isAuthenticated) {
+        navigate(paths.login);
+    }
+
     return (
         <Box sx={{flexGrow: 1, height: '100vh'}}>
             {/*Every child should say that they take up the max of the height their parent allows?*/}
@@ -14,17 +24,17 @@ export default function MainApp() {
                 {/* Column 1 */}
                 <Grid container xs={12} sm={6} md={3} sx={{height: '100%', overflow: 'hidden'}}>
                     <Grid xs={12}>
-                        <VisitorCounter></VisitorCounter>
+                        <VisitorCounter />
                     </Grid>
                     <Grid xs={12}>
                         <iframe
-                            src={`https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9`}
+                            title="Spotify"
+                            src={"https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9"}
                             width="100%"
                             height="100%"
+                            style={{ border: "none" }}
                             allow="encrypted-media"
-                            frameBorder="0"
-                            title="Spotify"
-                        ></iframe>
+                        />
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/gummibears.svg" alt="Magic Ball"
@@ -38,7 +48,7 @@ export default function MainApp() {
                 {/* Column 2 */}
                 {/*this height: 100% should give fixed height, how?*/}
                 <Grid xs={12} sm={6} md={4} sx={{height: '100%', overflowY: 'auto'}}>
-                    <Guestbook></Guestbook>
+                    <Guestbook />
                 </Grid>
 
                 {/* Column 3 */}
@@ -56,14 +66,13 @@ export default function MainApp() {
                     </Grid>
                     <Grid xs={12}>
                         <iframe
-                            src={`https://www.youtube.com/embed/dQw4w9WgXcQ`}
+                            title="YouTube"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                             width="100%"
                             height="100%"
-                            style={{maxWidth: '100%', maxHeight: '100%', aspectRatio: '16/9'}}
+                            style={{ border: "none", maxWidth: '100%', maxHeight: '100%', aspectRatio: '16/9'}}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-                            frameBorder="0"
-                            title="YouTube"
-                        ></iframe>
+                        />
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/instagram_button.svg" alt="Eyes"

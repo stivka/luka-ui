@@ -1,29 +1,9 @@
 import { Box } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useGetVisitorCount } from "../providers/backendApi";
 
 const VisitorCounter = () => {
-	const [count, setCount] = useState(0);
-	const apiUrl = process.env.REACT_APP_API_URL;
-
-	useEffect(() => {
-		console.log("Fetching visitor count from:", `${apiUrl}/visitor-count`);
-
-		fetch(`${apiUrl}/visitor-count`)
-			.then((response) => response.text())
-			.then((data) => {
-				setCount(Number(data));
-			})
-			.catch((error) => {});
-
-		fetch(`${apiUrl}/visitor-count/increment`, {
-			method: "POST",
-		})
-			.then((response) => response.text())
-			.then((data) => {
-				setCount(Number(data));
-			})
-			.catch((error) => {});
-	}, [apiUrl]);
+	const { data: count } = useGetVisitorCount();
 
 	return (
 		<Box

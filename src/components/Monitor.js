@@ -42,7 +42,7 @@ const Monitor = () => {
 					Icon={(props) => (
 						<img src="/w2k_wmp_7.ico" alt="Spotify Icon" {...props} />
 					)}
-					sx={{ backgroundColor: "#6D7979", maxHeight: 180 }}
+					sx={{ backgroundColor: "spotifyDarkGrey.main", maxHeight: 180 }}
 				>
 					<iframe
 						title="Spotify"

@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import {
 	Navigate,
@@ -6,23 +7,31 @@ import {
 	BrowserRouter as Router,
 	Routes,
 } from "react-router-dom";
-import Screen from "./Screen";
-import Login from "./components/Login";
-import MainApp from "./components/MainApp";
-import theme from "./theme"; // Ensure you have a theme file
+import { SessionProvider } from "./contexts/SessionContext";
+import Login from "./pages/Login";
+import MainApp from "./pages/MainApp";
+import Screen from "./pages/Screen";
+import { paths } from "./paths";
+import theme from "./theme";
+
+const queryClient = new QueryClient();
 
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<Router>
-				<Routes>
-					<Route path="/" element={<Login />} />
-					<Route path="/app" element={<MainApp />} />
-					<Route path="/computer" element={<Screen />} />
-					<Route path="*" element={<Navigate to="/" />} />
-				</Routes>
-			</Router>
+			<QueryClientProvider client={queryClient}>
+				<CssBaseline />
+				<SessionProvider>
+					<Router>
+						<Routes>
+							<Route path={paths.login} element={<Login />} />
+							<Route path={paths.index} element={<MainApp />} />
+							<Route path={paths.monitor} element={<Screen />} />
+							<Route path="*" element={<Navigate to={paths.index} />} />
+						</Routes>
+					</Router>
+				</SessionProvider>
+			</QueryClientProvider>
 		</ThemeProvider>
 	);
 }

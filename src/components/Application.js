@@ -34,7 +34,7 @@ const Application = ({ title, Icon, children, sx }) => {
 		>
 			<Box
 				id={`${title}-application-header`}
-				onMouseDown={startDragging}
+				onPointerDown={startDragging}
 				sx={{
 					px: 0.25,
 					display: "flex",
