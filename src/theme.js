@@ -40,9 +40,6 @@ const theme = createTheme({
 				body: {
 					cursor: "url(/hover_cursor.png), pointer !important",
 				},
-				div: {
-					cursor: "url(/hover_cursor.png), pointer !important",
-				},
 				a: {
 					cursor: "url(/hover_cursor.png), pointer !important",
 				},
@@ -62,6 +59,10 @@ const theme = createTheme({
 			styleOverrides: {
 				input: {
 					color: "white",
+					cursor: "url(/hover_cursor.png), pointer",
+					"&:hover": {
+						cursor: "url(/hover_cursor.png), pointer",
+					},
 				},
 			},
 		},
