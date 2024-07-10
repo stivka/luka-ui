@@ -11,7 +11,7 @@ const entriesPerPage = 5;
 const Guestbook = () => {
 	const [page, setPage] = useState(1);
 
-	const { data: entries, isLoading } = useGetGuestbookEntries({
+	const { data: entries, isPending } = useGetGuestbookEntries({
 		page: page - 1,
 		limit: entriesPerPage,
 	});
@@ -26,7 +26,7 @@ const Guestbook = () => {
 				style={{ width: "60%", height: "auto", flexShrink: 0, padding: 8 }}
 			/>
 			<GuestbookWriter />
-			{isLoading && <Loading />}
+			{isPending && <Loading />}
 			{entries?.content?.map((entry) => (
 				<GuestbookEntry key={entry.id} entry={entry} />
 			))}
