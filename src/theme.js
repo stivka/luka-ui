@@ -22,10 +22,26 @@ const theme = createTheme({
 		fontSize: 16,
 	},
 	components: {
+		MuiButton: {
+			styleOverrides: {
+				root: {
+					cursor: "url(/hover_cursor.png), pointer",
+					"&:hover": {
+						cursor: "url(/hover_cursor.png), pointer",
+					},
+				},
+			},
+		},
 		MuiCssBaseline: {
 			styleOverrides: {
-				body: {
+				"*": {
 					cursor: "url(/cursor2_64x64.png), auto",
+				},
+				body: {
+					cursor: "url(/hover_cursor.png), pointer !important",
+				},
+				a: {
+					cursor: "url(/hover_cursor.png), pointer !important",
 				},
 				"*::-webkit-scrollbar": {
 					display: "none", // Hides the scrollbar
@@ -43,6 +59,10 @@ const theme = createTheme({
 			styleOverrides: {
 				input: {
 					color: "white",
+					cursor: "url(/hover_cursor.png), pointer",
+					"&:hover": {
+						cursor: "url(/hover_cursor.png), pointer",
+					},
 				},
 			},
 		},
@@ -50,6 +70,16 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					color: "white",
+				},
+			},
+		},
+		MuiLink: {
+			styleOverrides: {
+				root: {
+					cursor: "url(/hover_cursor.png), pointer",
+					"&:hover": {
+						cursor: "url(/hover_cursor.png), pointer",
+					},
 				},
 			},
 		},
