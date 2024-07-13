@@ -6,13 +6,6 @@ const VisitorCounter = () => {
 	const { data: count } = useGetVisitorCount();
 
 	return (
-		<Box
-			sx={{
-				position: "relative",
-				width: "100%",
-				height: "100%",
-			}}
-		>
 			<Box
 				sx={{
 					position: "absolute",
@@ -49,13 +42,12 @@ const VisitorCounter = () => {
 					style={{
 						width: "48%",
 						height: "auto",
-						position: "absolute",
+						position: "relative",
 						top: "6%",
 						left: "40%",
 					}}
 				/>
 			</Box>
-		</Box>
 	);
 };
 
