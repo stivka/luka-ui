@@ -5,7 +5,6 @@ import Guestbook from "../components/Guestbook";
 import VisitorCounter from "../components/VisitorCounter";
 import useEnsureSession from '../hooks/useEnsureSession';
 import EmailButton from "../components/EmailButton";
-import Grid2 from "@mui/material/Unstable_Grid2";
 
 export default function MainApp() {
     useEnsureSession();
