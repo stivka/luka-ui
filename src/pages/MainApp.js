@@ -5,6 +5,7 @@ import Guestbook from "../components/Guestbook";
 import VisitorCounter from "../components/VisitorCounter";
 import useEnsureSession from '../hooks/useEnsureSession';
 import EmailButton from "../components/EmailButton";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
 export default function MainApp() {
     useEnsureSession();
@@ -45,7 +46,7 @@ export default function MainApp() {
                         <img src="/gummibears.svg" alt="Magic Ball"
                              style={{width: '100%', height: 'auto', flexShrink: 0, padding: 8, marginLeft: 26}}/>/>
                     </Grid>
-                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-20px'}}>
                         <img src="/magicball_200x200.gif" alt="Magic Ball"/>
                     </Grid>
                 </Grid>
@@ -85,9 +86,8 @@ export default function MainApp() {
                             </a>
                         </Grid>
                         <Grid xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Box sx={{ position: 'relative' }}>
-                                <img src="/smoking_greek_godess_500x500.gif" alt="Smoking Greek Goddess" style={{ maxHeight: '340px' }}/>
-                            </Box>
+                                <img src="/smoking_greek_godess_500x500.gif" alt="Smoking Greek Goddess" style={{width: '100%', height: 'auto'}}/>
+
                         </Grid>
                         <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <EmailButton/>
