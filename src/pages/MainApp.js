@@ -31,13 +31,13 @@ export default function MainApp() {
                             <VisitorCounter/>
                         </Box>
                     </Grid>
-                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '760px' }}>
                         <iframe
                             title="Spotify"
                             src={"https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9"}
                             width="100%"
                             height="100%"
-                            style={{ border: "none" }}
+                            style={{ border: "none", margin: '80px', justifyContent: 'center', alignItems: 'center' }}
                             allow="encrypted-media"
                         />
                     </Grid>
