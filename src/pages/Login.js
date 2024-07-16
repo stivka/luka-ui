@@ -23,7 +23,6 @@ const Login = () => {
 				justifyContent: "center",
 				alignItems: "center",
 				height: "100vh",
-				background: "#f0f0f0",
 			}}
 		>
 			<div>
