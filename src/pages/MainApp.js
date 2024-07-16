@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid2 import
 import CutoutEyes from "../components/CutoutEyes";
+import EmailButton from "../components/EmailButton";
 import Guestbook from "../components/Guestbook";
 import VisitorCounter from "../components/VisitorCounter";
 import useEnsureSession from '../hooks/useEnsureSession';
-import EmailButton from "../components/EmailButton";
 
 export default function MainApp() {
     useEnsureSession();
@@ -72,7 +72,7 @@ export default function MainApp() {
                     <Grid xs={12}>
                         <iframe
                             title="YouTube"
-                            src="https://www.youtube.com/embed/2iNGona_oFc"
+                            src="https://www.youtube.com/embed/2iNGona_oFc?autoplay=1"
                             width="100%"
                             height="100%"
                             style={{ border: "none", maxWidth: '100%', maxHeight: '100%', aspectRatio: '16/9'}}
