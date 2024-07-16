@@ -16,6 +16,15 @@ const Login = () => {
 		}
 	};
 
+	const setBoxShadow = (e) => {
+		e.currentTarget.style.boxShadow =
+			"0px 45px 20px -17px rgba(201, 175, 43, 0.9)";
+	};
+
+	const unsetBoxShadow = (e) => {
+		e.currentTarget.style.boxShadow = "none";
+	};
+
 	return (
 		<div
 			style={{
@@ -23,9 +32,10 @@ const Login = () => {
 				justifyContent: "center",
 				alignItems: "center",
 				height: "100vh",
+				cursor: "auto",
 			}}
 		>
-			<div>
+			<div style={{ cursor: "auto" }}>
 				<input
 					type="text"
 					placeholder="Username"
@@ -36,6 +46,7 @@ const Login = () => {
 						margin: "10px 0",
 						padding: "10px",
 						width: "100%",
+						cursor: "auto",
 					}}
 				/>
 				<input
@@ -48,22 +59,33 @@ const Login = () => {
 						margin: "10px 0",
 						padding: "10px",
 						width: "100%",
+						cursor: "auto",
 					}}
 				/>
 				<button
 					type="submit"
 					onClick={handleLogin}
 					style={{
-						display: "block",
-						margin: "20px auto",
-						padding: "10px 20px",
-						background: "#a1e44d",
+						padding: 0,
 						border: "none",
-						borderRadius: "5px",
-						cursor: "pointer",
+						background: "none",
+						cursor: "auto",
 					}}
 				>
-					LOGIN!
+					<img
+						src="/login_button.png"
+						alt="Login button"
+						style={{
+							width: "100%",
+							height: "auto",
+							cursor: "auto",
+							transition: "box-shadow 0.2s",
+						}}
+						onMouseOver={setBoxShadow}
+						onMouseOut={unsetBoxShadow}
+						onFocus={setBoxShadow}
+						onBlur={unsetBoxShadow}
+					/>
 				</button>
 			</div>
 		</div>
