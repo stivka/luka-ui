@@ -33,6 +33,7 @@ const Login = () => {
 				alignItems: "center",
 				height: "100vh",
 				cursor: "auto",
+				background: "#f0f0f0",
 			}}
 		>
 			<div style={{ cursor: "auto", textAlign: "center" }}>
