@@ -18,7 +18,7 @@ const Login = () => {
 
 	const setBoxShadow = (e) => {
 		e.currentTarget.style.boxShadow =
-			"0px 45px 20px -17px rgba(201, 175, 43, 0.9)";
+			"0px 45px 20px -17px rgba(83, 201, 43, 0.6)";
 	};
 
 	const unsetBoxShadow = (e) => {
@@ -69,7 +69,7 @@ const Login = () => {
 						padding: 0,
 						border: "none",
 						background: "none",
-						cursor: "auto",
+						cursor: "pointer",
 					}}
 				>
 					<img
@@ -78,7 +78,7 @@ const Login = () => {
 						style={{
 							width: "100%",
 							height: "auto",
-							cursor: "auto",
+							cursor: "pointer",
 							transition: "box-shadow 0.2s",
 						}}
 						onMouseOver={setBoxShadow}
