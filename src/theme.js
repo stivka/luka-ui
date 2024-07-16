@@ -12,9 +12,7 @@ const theme = createTheme({
 			main: "#6e7979",
 		},
 		background: {
-			default: "#000428", // Fallback color
-			paper: "linear-gradient(to right, #000428, #004e92)", // Gradient for other background uses
-			footer: "linear-gradient(to left, #000428, #004e92)",
+			default: "#ff0f7b",
 		},
 	},
 	typography: {
@@ -39,6 +37,8 @@ const theme = createTheme({
 				},
 				body: {
 					cursor: "url(/cursor_128x128_default.png), pointer !important",
+					background:
+						"linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(241, 100%, 50%, 1) 100%)",
 				},
 				a: {
 					cursor: "url(/cursor_128x128_default.png), pointer !important",
