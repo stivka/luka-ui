@@ -35,7 +35,7 @@ const Login = () => {
 				cursor: "auto",
 			}}
 		>
-			<div style={{ cursor: "auto" }}>
+			<div style={{ cursor: "auto", textAlign: "center" }}>
 				<input
 					type="text"
 					placeholder="Username"
