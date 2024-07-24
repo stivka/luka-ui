@@ -11,8 +11,8 @@ const getEyeAngle = (cx, cy, ex, ey) => {
 
 const trackDeviceOrientation = (onChange) => {
 	const handleDeviceOrientation = (event) => {
-		const { beta } = event;
-		const deg = -beta;
+		const { gamma } = event;
+		const deg = gamma;
 		onChange(deg);
 	};
 
