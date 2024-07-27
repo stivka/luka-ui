@@ -46,3 +46,10 @@ export function usePostGuestbookEntry(options) {
 		...options,
 	});
 }
+
+export function usePostLogin(options) {
+	return useMutation({
+		mutationFn: (loginData) => request("POST", "/users", loginData),
+		...options
+	});
+}
