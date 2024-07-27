@@ -62,7 +62,7 @@ const Monitor = () => {
 				>
 					<iframe
 						title="YouTube video"
-						src="https://www.youtube.com/embed/sCVycaNFAKU?si=pFtI6gJmi0fxApFa"
+						src="https://www.youtube.com/embed/sCVycaNFAKU"
 						width="100%"
 						height="100%"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
