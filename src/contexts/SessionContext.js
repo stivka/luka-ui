@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import {usePostLogin} from "../providers/backendApi";
 
 export const initialState = {
 	isAuthenticated: false,
@@ -16,12 +17,15 @@ export const SessionProvider = ({ children }) => {
 	const [session, setSession] = useLocalStorage("session", null);
 	const isAuthenticated = !!session;
 	const user = session?.username ?? null;
+	const loginMutation = usePostLogin();
 
 	const login = async (credentials) => {
-		setSession({
+		const session = {
 			username: credentials.username,
 			password: credentials.password,
-		});
+		};
+		await loginMutation.mutateAsync(session);
+		setSession(session);
 	};
 
 	const logout = () => setSession(null);
