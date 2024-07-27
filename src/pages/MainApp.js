@@ -72,7 +72,7 @@ export default function MainApp() {
                     <Grid xs={12}>
                         <iframe
                             title="YouTube"
-                            src="https://www.youtube.com/embed/2iNGona_oFc?autoplay=1"
+                            src="https://www.youtube.com/embed/sCVycaNFAKU?autoplay=1"
                             width="100%"
                             height="100%"
                             style={{ border: "none", maxWidth: '100%', maxHeight: '100%', aspectRatio: '16/9'}}
