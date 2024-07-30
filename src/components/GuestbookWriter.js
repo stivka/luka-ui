@@ -12,7 +12,11 @@ const GuestbookWriter = () => {
 		e.preventDefault();
 
 		if (name && message) {
-			const newEntry = { name, message, date: new Date().toISOString() };
+			const newEntry = {
+				name,
+				message,
+				submittedAt: new Date().toISOString() // Ensure this is in UTC format
+			};
 			try {
 				const result = await postMutation.mutateAsync(newEntry);
 				if (result.error) {
