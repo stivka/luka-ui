@@ -74,7 +74,7 @@ const Login = () => {
 					}}
 				>
 					<img
-						src="/login_button.png"
+						src="/images/login_button.png"
 						alt="Login button"
 						style={{
 							width: "100%",

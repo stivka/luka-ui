@@ -23,9 +23,9 @@ const theme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					cursor: "url(/cursor_128x128_hover.gif), pointer",
+					cursor: "url(/images/cursor_128x128_hover.gif), pointer",
 					"&:hover": {
-						cursor: "url(/cursor_128x128_hover.gif), pointer",
+						cursor: "url(/images/cursor_128x128_hover.gif), pointer",
 					},
 				},
 			},
@@ -33,15 +33,15 @@ const theme = createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				"*": {
-					cursor: "url(/cursor_128x128_default.png), auto",
+					cursor: "url(/images/cursor_128x128_default.png), auto",
 				},
 				body: {
-					cursor: "url(/cursor_128x128_default.png), pointer !important",
+					cursor: "url(/images/cursor_128x128_default.png), pointer !important",
 					background:
 						"linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(241, 100%, 50%, 1) 100%)",
 				},
 				a: {
-					cursor: "url(/cursor_128x128_default.png), pointer !important",
+					cursor: "url(/images/cursor_128x128_default.png), pointer !important",
 				},
 				"*::-webkit-scrollbar": {
 					display: "none", // Hides the scrollbar
@@ -59,9 +59,9 @@ const theme = createTheme({
 			styleOverrides: {
 				input: {
 					color: "white",
-					cursor: "url(/cursor_128x128_hover.gif), pointer",
+					cursor: "url(/images/cursor_128x128_hover.gif), pointer",
 					"&:hover": {
-						cursor: "url(/cursor_128x128_hover.gif), pointer",
+						cursor: "url(/images/cursor_128x128_hover.gif), pointer",
 					},
 				},
 			},
@@ -76,9 +76,9 @@ const theme = createTheme({
 		MuiLink: {
 			styleOverrides: {
 				root: {
-					cursor: "url(/cursor_128x128_hover.gif), pointer",
+					cursor: "url(/images/cursor_128x128_hover.gif), pointer",
 					"&:hover": {
-						cursor: "url(/cursor_128x128_hover.gif), pointer",
+						cursor: "url(/images/cursor_128x128_hover.gif), pointer",
 					},
 				},
 			},

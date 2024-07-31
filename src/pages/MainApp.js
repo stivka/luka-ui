@@ -42,11 +42,11 @@ export default function MainApp() {
                         />
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/gummibears.svg" alt="Magic Ball"
+                        <img src="/images/gummibears.svg" alt="Magic Ball"
                              style={{width: '100%', height: 'auto', flexShrink: 0, padding: 8, marginLeft: 26}}/>/>
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-20px'}}>
-                        <img src="/magicball_200x200.gif" alt="Magic Ball"/>
+                        <img src="/images/magicball_200x200.gif" alt="Magic Ball"/>
                     </Grid>
                 </Grid>
 
@@ -59,14 +59,14 @@ export default function MainApp() {
                 {/* Column 3 */}
                 <Grid container xs={12} md={5} sx={{height: '100%', overflow: 'auto'}}>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/kyynal_299x500.gif" alt="Candle1"
+                        <img src="/images/kyynal_299x500.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <CutoutEyes />
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/kyynal_299x500.gif" alt="Candle1"
+                        <img src="/images/kyynal_299x500.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={12}>
@@ -81,11 +81,11 @@ export default function MainApp() {
                     </Grid>
                         <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <a href="https://instagram.com/hausvonstarkiller" target="_blank" rel="noopener noreferrer">
-                                <img src="/instagram_button.svg" alt="Instagram button" style={{ width: '100%', height: 'auto' }}/>
+                                <img src="/images/instagram_button.svg" alt="Instagram button" style={{ width: '100%', height: 'auto' }}/>
                             </a>
                         </Grid>
                         <Grid xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <img src="/smoking_greek_godess_500x500.gif" alt="Smoking Greek Goddess" style={{width: '100%', height: 'auto'}}/>
+                                <img src="/images/smoking_greek_godess_500x500.gif" alt="Smoking Greek Goddess" style={{width: '100%', height: 'auto'}}/>
 
                         </Grid>
                         <Grid xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -95,7 +95,7 @@ export default function MainApp() {
             </Grid>
             <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', position: 'relative' }}>
                 <Box sx={{ width: { xs: '60%', md: 160 }, height: 'auto', position: { xs: 'auto', md: 'absolute' }, right: 0, overflowY: 'clip', }}>
-                    <img src="/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: -32, width: '100%', height: 'auto' }}/>
+                    <img src="/images/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: -32, width: '100%', height: 'auto' }}/>
                 </Box>
             </Box>
         </Box>
