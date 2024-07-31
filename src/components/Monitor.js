@@ -16,7 +16,7 @@ const Monitor = () => {
 			}}
 		>
 			<img
-				src="/monitor.png"
+				src="/images/monitor.png"
 				alt="Monitor"
 				draggable={false}
 				style={{ width: "100%", height: "auto" }}
@@ -31,7 +31,7 @@ const Monitor = () => {
 					width: "80%",
 					height: "59%",
 					overflow: "hidden",
-					backgroundImage: 'url("/screen.png")',
+					backgroundImage: 'url("/images/screen.png")',
 					display: switchedOn ? "flex" : "none",
 					flexDirection: "column",
 					gap: 2,
@@ -40,7 +40,7 @@ const Monitor = () => {
 				<Application
 					title="Spotify"
 					Icon={(props) => (
-						<img src="/w2k_wmp_7.ico" alt="Spotify Icon" {...props} />
+						<img src="/images/w2k_wmp_7.ico" alt="Spotify Icon" {...props} />
 					)}
 					sx={{ backgroundColor: "spotifyDarkGrey.main", maxHeight: 180 }}
 				>
@@ -56,7 +56,7 @@ const Monitor = () => {
 				<Application
 					title="YouTube"
 					Icon={(props) => (
-						<img src="/w2k_wmp_52.ico" alt="YouTube Icon" {...props} />
+						<img src="/images/w2k_wmp_52.ico" alt="YouTube Icon" {...props} />
 					)}
 					sx={{ height: 248, width: 400, alignSelf: "flex-end" }}
 				>

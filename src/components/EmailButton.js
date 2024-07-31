@@ -20,7 +20,7 @@ const EmailButton = () => {
     return (
         <>
             <Button onClick={handleClick} style={{padding: 0}}>
-                <img src="/email_button_svg.svg" alt="Email"
+                <img src="/images/email_button_svg.svg" alt="Email"
                      style={{ width: '100%', height: 'auto' }}/>
             </Button>
             <Snackbar
