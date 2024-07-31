@@ -64,7 +64,7 @@ export default function CutoutEyes() {
 			{!isMobile && (
 				<Box sx={{ position: "absolute", width: "100%", height: "100%" }}>
 					<img
-						src="/eye.png"
+						src="/images/eye.png"
 						alt="Eye"
 						style={eyeStyle(30, -58)} // Adjust these percentages based on the face image
 						ref={leftEyeRef}

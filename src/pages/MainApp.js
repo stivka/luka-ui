@@ -96,7 +96,7 @@ export default function MainApp() {
             </Grid>
             <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', position: 'relative' }}>
                 <Box sx={{ width: { xs: '60%', md: 160 }, height: 'auto', position: { xs: 'auto', md: 'absolute' }, right: 0, overflowY: 'clip', }}>
-                    <img src="/images/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: isMobile ? -32 : -24, width: '100%', height: 'auto' }}/>
+                    <img src="/images/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: isMobile ? -32 : 0, width: '100%', height: 'auto' }}/>
                 </Box>
             </Box>
         </Box>
