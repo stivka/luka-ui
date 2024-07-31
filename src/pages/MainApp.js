@@ -1,5 +1,4 @@
-import { Box } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid2 import
+import { Box, Unstable_Grid2 as Grid, useMediaQuery } from '@mui/material';
 import CutoutEyes from "../components/CutoutEyes";
 import EmailButton from "../components/EmailButton";
 import Guestbook from "../components/Guestbook";
@@ -7,6 +6,8 @@ import VisitorCounter from "../components/VisitorCounter";
 import useEnsureSession from '../hooks/useEnsureSession';
 
 export default function MainApp() {
+    const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
+
     useEnsureSession();
 
     return (
@@ -95,7 +96,7 @@ export default function MainApp() {
             </Grid>
             <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', position: 'relative' }}>
                 <Box sx={{ width: { xs: '60%', md: 160 }, height: 'auto', position: { xs: 'auto', md: 'absolute' }, right: 0, overflowY: 'clip', }}>
-                    <img src="/images/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: -32, width: '100%', height: 'auto' }}/>
+                    <img src="/images/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: isMobile ? -32 : -24, width: '100%', height: 'auto' }}/>
                 </Box>
             </Box>
         </Box>
