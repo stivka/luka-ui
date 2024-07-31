@@ -15,7 +15,7 @@ const GuestbookEntry = ({ entry }) => (
 				{entry.name}
 			</Typography>
 			<Typography variant="body2" color="white" align="center">
-				{formatDistanceToNow(new Date(entry.createdAt), { addSuffix: true })}
+				{formatDistanceToNow(new Date(entry.submittedAt), { addSuffix: true })}
 			</Typography>
 			<Typography variant="body1" align="center">
 				{entry.message}
