@@ -10,7 +10,7 @@ export default function MainApp() {
     useEnsureSession();
 
     return (
-        <Box sx={{flexGrow: 1, height: '100vh'}}>
+        <Box sx={{ flexGrow: 1, height: { xs: '100%', md: '100vh' }}}>
             {/*Every child should say that they take up the max of the height their parent allows?*/}
             <Grid container spacing={2} sx={{height: '100%'}}>
 
