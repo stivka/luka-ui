@@ -93,6 +93,11 @@ export default function MainApp() {
                         </Grid>
                 </Grid>
             </Grid>
+            <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', position: 'relative' }}>
+                <Box sx={{ width: { xs: '60%', md: 160 }, height: 'auto', position: { xs: 'auto', md: 'absolute' }, right: 0, overflowY: 'clip', }}>
+                    <img src="/megahurtz.svg" alt="MegaHurtz" style={{ marginBottom: -32, width: '100%', height: 'auto' }}/>
+                </Box>
+            </Box>
         </Box>
     );
 }
