@@ -46,7 +46,7 @@ const Monitor = () => {
 				>
 					<iframe
 						title="Spotify"
-						src="https://open.spotify.com/embed/album/5VmKMLTrpNTaCjR8qxavz9"
+						src="https://open.spotify.com/embed/album/6kM9YkGOl27eV5U3rSO0BP"
 						width="100%"
 						height="152px"
 						allow="encrypted-media"
