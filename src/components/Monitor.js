@@ -1,7 +1,8 @@
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 import React from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
+import {Link} from "react-router-dom";
 
 const Monitor = () => {
 	const [switchedOn, setSwitchedOn] = useLocalStorage("monitor-on", false);
@@ -33,8 +34,7 @@ const Monitor = () => {
 					overflow: "hidden",
 					backgroundImage: 'url("/images/screen.png")',
 					display: switchedOn ? "flex" : "none",
-					flexDirection: "column",
-					gap: 2,
+					flexDirection: "column"
 				}}
 			>
 				<Application
@@ -53,6 +53,28 @@ const Monitor = () => {
 						style={{ border: "none", frameBorder: "0" }}
 					/>
 				</Application>
+				<Link to="/">
+					<Box
+						sx={{
+							position: "absolute",
+							top: "45px",
+							left: "470px",
+							cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							"&:hover": {
+								cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							},
+						}}
+					>
+						<img
+							src="/favicon.svg"
+							alt="Website"
+							width="175%"
+							style={{
+								cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							}}
+						/>
+					</Box>
+				</Link>
 				<Application
 					title="YouTube"
 					Icon={(props) => (
@@ -80,7 +102,8 @@ const Monitor = () => {
 					left: "75.3%",
 					width: "4%",
 					height: "4%",
-					cursor: "pointer",
+					cursor: "pointer"
+					,
 				}}
 			/>
 			<Box

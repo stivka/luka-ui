@@ -19,9 +19,30 @@ const EmailButton = () => {
 
     return (
         <>
-            <Button onClick={handleClick} style={{padding: 0}}>
-                <img src="/images/email_button_svg.svg" alt="Email"
-                     style={{ width: '100%', height: 'auto' }}/>
+            <Button
+                onClick={handleClick}
+                style={{
+                    padding: 0,
+                    cursor: "pointer",
+                    width: '100%',
+                    height: 'auto',
+                    display: 'inline-flex',
+                }}
+                sx={{
+                    "&:hover": {
+                        cursor: "pointer",
+                    },
+                }}
+            >
+                <img
+                    src="/images/email_button_svg.svg"
+                    alt="Email"
+                    style={{
+                        width: '100%',
+                        height: 'auto',
+                        cursor: "inherit",
+                    }}
+                />
             </Button>
             <Snackbar
                 anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
