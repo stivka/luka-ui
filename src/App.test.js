@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import MainApp from './MainApp';
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import Login from "./pages/Login";
 
-test('renders learn react link', () => {
-  render(<MainApp />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders login button", () => {
+	render(
+		<MemoryRouter>
+			<Login />
+		</MemoryRouter>,
+	);
+	const visitorCounterElement = screen.getByAltText("Login button");
+	expect(visitorCounterElement).toBeInTheDocument();
 });

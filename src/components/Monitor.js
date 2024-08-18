@@ -1,7 +1,8 @@
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 import React from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
+import {Link} from "react-router-dom";
 
 const Monitor = () => {
 	const [switchedOn, setSwitchedOn] = useLocalStorage("monitor-on", false);
@@ -16,7 +17,7 @@ const Monitor = () => {
 			}}
 		>
 			<img
-				src="/monitor.png"
+				src="/images/monitor.png"
 				alt="Monitor"
 				draggable={false}
 				style={{ width: "100%", height: "auto" }}
@@ -31,16 +32,15 @@ const Monitor = () => {
 					width: "80%",
 					height: "59%",
 					overflow: "hidden",
-					backgroundImage: 'url("/screen.png")',
+					backgroundImage: 'url("/images/screen.png")',
 					display: switchedOn ? "flex" : "none",
-					flexDirection: "column",
-					gap: 2,
+					flexDirection: "column"
 				}}
 			>
 				<Application
 					title="Spotify"
 					Icon={(props) => (
-						<img src="/w2k_wmp_7.ico" alt="Spotify Icon" {...props} />
+						<img src="/images/w2k_wmp_7.ico" alt="Spotify Icon" {...props} />
 					)}
 					sx={{ backgroundColor: "spotifyDarkGrey.main", maxHeight: 180 }}
 				>
@@ -53,10 +53,32 @@ const Monitor = () => {
 						style={{ border: "none", frameBorder: "0" }}
 					/>
 				</Application>
+				<Link to="/">
+					<Box
+						sx={{
+							position: "absolute",
+							top: "45px",
+							left: "470px",
+							cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							"&:hover": {
+								cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							},
+						}}
+					>
+						<img
+							src="/favicon.svg"
+							alt="Website"
+							width="175%"
+							style={{
+								cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							}}
+						/>
+					</Box>
+				</Link>
 				<Application
 					title="YouTube"
 					Icon={(props) => (
-						<img src="/w2k_wmp_52.ico" alt="YouTube Icon" {...props} />
+						<img src="/images/w2k_wmp_52.ico" alt="YouTube Icon" {...props} />
 					)}
 					sx={{ height: 248, width: 400, alignSelf: "flex-end" }}
 				>
@@ -80,7 +102,8 @@ const Monitor = () => {
 					left: "75.3%",
 					width: "4%",
 					height: "4%",
-					cursor: "pointer",
+					cursor: "pointer"
+					,
 				}}
 			/>
 			<Box
