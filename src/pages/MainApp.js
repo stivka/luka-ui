@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 export default function MainApp() {
     const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
 
-    useEnsureSession();
+    // useEnsureSession();
 
     return (
         <Box sx={{flexGrow: 1, height: {xs: '100%', md: '100vh'}}}>
@@ -96,7 +96,7 @@ export default function MainApp() {
                                 }
                             }}
                         >
-                            <a href="https://instagram.com/hausvonstarkiller" target="_blank" rel="noopener noreferrer">
+                            <a href="https://instagram.com/lukastarkiller" target="_blank" rel="noopener noreferrer">
                                 <img src="/images/instagram_button.svg" alt="Instagram button"
                                      style={{width: '100%', height: 'auto', cursor: "pointer"}}/>
                             </a>
