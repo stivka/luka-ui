@@ -3,7 +3,7 @@ import CutoutEyes from "../components/CutoutEyes";
 import EmailButton from "../components/EmailButton";
 import Guestbook from "../components/Guestbook";
 import VisitorCounter from "../components/VisitorCounter";
-import useEnsureSession from '../hooks/useEnsureSession';
+// import useEnsureSession from '../hooks/useEnsureSession';
 import {Link} from "react-router-dom";
 
 export default function MainApp() {
