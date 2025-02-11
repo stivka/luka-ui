@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import {usePostLogin} from "../providers/backendApi";
+import { usePostLogin } from "../providers/backendApi";
 
 export const initialState = {
 	isAuthenticated: false,
