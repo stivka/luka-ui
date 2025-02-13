@@ -14,6 +14,7 @@ export EMCC_CFLAGS="-std=gnu89 -sUSE_SDL"
 emconfigure ./configure
 emmake make
 emcc -o doom.html ./*.o --preload-file doom1.wad \
-	-s ALLOW_MEMORY_GROWTH=1 --shell-file ../../doom-shell.html
+    -s FORCE_FILESYSTEM=1 -lidbfs.js -s ALLOW_MEMORY_GROWTH=1 \
+    --shell-file ../../doom-shell.html
 mkdir -p ../../../public/doom
 mv doom.* ../../../public/doom

@@ -305,6 +305,9 @@
         button.addEventListener("touchcancel", handleTouchEnd(key));
       });
 
+
+    let isStorageSyncing = false;
+
     var Module = {
       keyboardListeningElement: captchaContainer,
       arguments: [
@@ -329,9 +332,47 @@
             // For all other keys, use the original function
             return originalLookupKeyCodeForEvent(event);
           };
+
+          // In the preRun stage, mount IDBFS so that it’s available to DOOM right away.
+          // This enables syncing browser storage to doom_saves folder
+          if (!FS.analyzePath("/doom_saves").exists) {
+            // Ensure the directory exists BEFORE mounting IDBFS
+            FS.mkdir("/doom_saves");
+          }
+
+          FS.mount(IDBFS, {}, "/doom_saves");
+
+          console.log("Mounted IDBFS, syncing from IndexedDB...");
+
+          FS.syncfs(true, function (err) {
+            if (err) {
+              console.error("Failed to sync from IndexedDB:", err);
+            } else {
+              console.log("Successfully loaded saved data from IndexedDB.");
+              console.log("Files after sync:", FS.readdir("/doom_saves"));
+            }
+          });
         },
       ],
       postRun: [],
+      onSaveGame: function () {
+        console.log("Game saved: Syncing IndexedDB...");
+
+        if (isStorageSyncing) {
+          console.warn("Sync already in progress, skipping...");
+          return;
+        }
+        isStorageSyncing = true;
+
+        FS.syncfs(false, function (err) {
+          isStorageSyncing = false;
+          if (err) {
+            console.error("Failed to sync to IndexedDB after save:", err);
+          } else {
+            console.log("Auto-sync: Save data persisted to IndexedDB.");
+          }
+        });
+      },
       onPlayerBorn: function () {
         logDebugMessage("Player born");
       },
