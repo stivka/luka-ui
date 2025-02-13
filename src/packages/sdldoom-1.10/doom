@@ -583,10 +583,10 @@ async function createWasm() {
 // === Body ===
 
 var ASM_CONSTS = {
-  148368: () => { Module.onPlayerBorn() },  
- 148390: () => { Module.onSaveGame() },  
- 148410: () => { Module.onEnemyKilled() },  
- 148433: () => { Module.onPlayerDeath() }
+  148352: () => { Module.onPlayerBorn() },  
+ 148374: () => { Module.onSaveGame() },  
+ 148394: () => { Module.onEnemyKilled() },  
+ 148417: () => { Module.onPlayerDeath() }
 };
 
 // end include: preamble.js

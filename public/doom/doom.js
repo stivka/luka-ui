@@ -31,7 +31,7 @@ if (ENVIRONMENT_IS_NODE) {
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmpbs8mzxbk.js
+// include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmptbqqe03j.js
 
   Module['expectedDataFileDownloads'] ??= 0;
   Module['expectedDataFileDownloads']++;
@@ -211,21 +211,21 @@ var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
 
   })();
 
-// end include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmpbs8mzxbk.js
-// include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmpkjjq5dd2.js
+// end include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmptbqqe03j.js
+// include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmphhb9nesd.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if (Module['$ww'] || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmpkjjq5dd2.js
-// include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmp_adhccsz.js
+  // end include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmphhb9nesd.js
+// include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmptv2yn0me.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmp_adhccsz.js
+  // end include: /var/folders/8h/kqy14p6n6r59dpr3kqh40bq40000gn/T/tmptv2yn0me.js
 
 
 // Sometimes an existing Module object exists with properties
@@ -1057,10 +1057,10 @@ async function createWasm() {
 // === Body ===
 
 var ASM_CONSTS = {
-  212976: () => { Module.onPlayerBorn() },  
- 212998: () => { Module.onSaveGame() },  
- 213018: () => { Module.onEnemyKilled() },  
- 213041: () => { Module.onPlayerDeath() }
+  212960: () => { Module.onPlayerBorn() },  
+ 212982: () => { Module.onSaveGame() },  
+ 213002: () => { Module.onEnemyKilled() },  
+ 213025: () => { Module.onPlayerDeath() }
 };
 
 // end include: preamble.js
