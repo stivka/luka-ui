@@ -1181,6 +1181,11 @@ void G_DoSaveGame(void) {
 
   players[consoleplayer].message = GGSAVED;
 
+  #ifdef __EMSCRIPTEN__
+    // Call the JS hook (only in Emscripten builds for syncing browser storage )
+    EM_ASM(Module.onSaveGame());
+  #endif
+
   // draw the pattern into the back screen
   R_FillBackScreen();
 }
