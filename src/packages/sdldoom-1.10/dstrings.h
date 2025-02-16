@@ -38,7 +38,9 @@
 #endif
 
 // Misc. other strings.
-#define SAVEGAMENAME	"doomsav"
+
+// Overwrote save games into doom_saves so they can be synced to IndexedDB
+#define SAVEGAMENAME	"/doom_saves/sdlsav"
 
 
 //
