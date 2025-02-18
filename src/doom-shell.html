@@ -305,7 +305,6 @@
         button.addEventListener("touchcancel", handleTouchEnd(key));
       });
 
-
     let isStorageSyncing = false;
 
     var Module = {
@@ -327,6 +326,17 @@
             // Add x key for easier shooting on mac
             if (event.keyCode === 88) {
               return originalLookupKeyCodeForEvent({ ...event, keyCode: 17 });
+            }
+
+            // Add m key to toggle menu
+            if (event.keyCode === 77) {
+              return originalLookupKeyCodeForEvent({ ...event, keyCode: 27 });
+            }
+
+            // Ignore CMD key by returning 0
+            if (!!event.metaKey) {
+              event.preventDefault();
+              return 0;
             }
 
             // For all other keys, use the original function
