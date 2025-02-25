@@ -13,6 +13,8 @@ const theme = createTheme({
 		},
 		background: {
 			default: "#ff0f7b",
+			minesweeper: "#C0C0C0",
+      minesweeperDark: "#808080",
 		},
 	},
 	typography: {

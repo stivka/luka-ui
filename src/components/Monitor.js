@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
+import Minesweeper from "./Minesweeper";
 
 const iframeStyle = {
 	height: "calc(100% - 24px)",
@@ -25,17 +26,13 @@ const Monitor = () => {
 
 	const handleDoomFullscreen = () => {
 		if (doomframeRef.current) {
-			// Check if the browser supports the Fullscreen API
 			if (doomframeRef.current.requestFullscreen) {
 				doomframeRef.current.requestFullscreen();
 			} else if (doomframeRef.current.mozRequestFullScreen) {
-				// Firefox
 				doomframeRef.current.mozRequestFullScreen();
 			} else if (doomframeRef.current.webkitRequestFullscreen) {
-				// Chrome, Safari, Opera
 				doomframeRef.current.webkitRequestFullscreen();
 			} else if (doomframeRef.current.msRequestFullscreen) {
-				// IE/Edge
 				doomframeRef.current.msRequestFullscreen();
 			}
 		}
@@ -81,7 +78,7 @@ const Monitor = () => {
 					title="Spotify"
 					onFocus={() => handleApplicationFocus("Spotify")}
 					Icon={(props) => (
-						<img src="/images/w2k_wmp_7.ico" alt="Spotify Icon" {...props} />
+						<img src="/images/w2k_wmp_7.ico" {...props} alt="Spotify Icon" />
 					)}
 					sx={{
 						height: 190,
@@ -124,7 +121,7 @@ const Monitor = () => {
 					title="YouTube"
 					onFocus={() => handleApplicationFocus("YouTube")}
 					Icon={(props) => (
-						<img src="/images/w2k_wmp_52.ico" alt="YouTube Icon" {...props} />
+						<img src="/images/w2k_wmp_52.ico" {...props} alt="YouTube Icon" />
 					)}
 					sx={{
 						height: 252,
@@ -146,8 +143,8 @@ const Monitor = () => {
 					Icon={(props) => (
 						<img
 							src="/images/wxp_512.ico"
-							alt="Internet Explorer Icon"
 							{...props}
+							alt="Internet Explorer Icon"
 						/>
 					)}
 					sx={{
@@ -162,7 +159,6 @@ const Monitor = () => {
 						src="https://www.neti.ee"
 						height="484px"
 						width="640px"
-						// height="480px"
 						allow="clipboard-write; encrypted-media;"
 						onFocus={() => handleApplicationFocus("Internet")}
 						style={{ aspectRatio: "4/3", ...iframeStyle }}
@@ -170,11 +166,29 @@ const Monitor = () => {
 					/>
 				</Application>
 				<Application
+					title="Minesweeper"
+					onFocus={() => handleApplicationFocus("Sweeper")}
+					Icon={(props) => (
+						<img
+							src="/images/minesweeper.webp"
+							{...props}
+							alt="Minesweeper Icon"
+						/>
+					)}
+					sx={{
+						height: "fit-content",
+						width: "fit-content",
+						zIndex: zIndices.Minesweeper || 1,
+					}}
+				>
+					<Minesweeper />
+				</Application>
+				<Application
 					title="Doom"
 					onFocus={() => handleApplicationFocus("Doom")}
 					onFullScreen={handleDoomFullscreen}
 					Icon={(props) => (
-						<img src="/images/doom.ico" alt="Doom Icon" {...props} />
+						<img src="/images/doom.ico" {...props} alt="Doom Icon" />
 					)}
 					sx={{
 						height: 426,
@@ -234,9 +248,14 @@ const Monitor = () => {
 					borderRadius: 1,
 					boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
 					transform: "rotate(-2deg)",
+					cursor: "default !important",
 				}}
 			>
-				<Typography variant="caption" align="center">
+				<Typography
+					variant="caption"
+					align="center"
+					sx={{ cursor: "default !important" }}
+				>
 					Remember to turn me on ;)
 				</Typography>
 			</Box>

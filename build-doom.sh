@@ -15,6 +15,7 @@ emconfigure ./configure
 emmake make
 emcc -o doom.html ./*.o --preload-file doom1.wad \
     -s FORCE_FILESYSTEM=1 -lidbfs.js -s ALLOW_MEMORY_GROWTH=1 \
-    --shell-file ../../doom-shell.html
+    -s ASYNCIFY -O3 \
+		--shell-file ../../doom-shell.html
 mkdir -p ../../../public/doom
 mv doom.* ../../../public/doom
