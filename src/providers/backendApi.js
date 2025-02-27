@@ -5,7 +5,7 @@ import { apiUrl } from "../config";
 const request = async (method, url, body, options = {}) => {
 	const response = await fetch(`${apiUrl}${url}`, {
 		method,
-    body: body ? JSON.stringify(body) : undefined,
+		body: body ? JSON.stringify(body) : undefined,
 		headers: {
 			"Content-Type": "application/json",
 			...options.headers,
@@ -50,6 +50,6 @@ export function usePostGuestbookEntry(options) {
 export function usePostLogin(options) {
 	return useMutation({
 		mutationFn: (loginData) => request("POST", "/users", loginData),
-		...options
+		...options,
 	});
 }

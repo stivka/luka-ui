@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { openAIApiKey } from "../config";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
 import Minesweeper from "./Minesweeper";
+import Msn from "./Msn";
 
 const iframeStyle = {
 	height: "calc(100% - 24px)",
@@ -74,27 +76,6 @@ const Monitor = () => {
 					cursor: "auto",
 				}}
 			>
-				<Application
-					title="Spotify"
-					onFocus={() => handleApplicationFocus("Spotify")}
-					Icon={(props) => (
-						<img src="/images/w2k_wmp_7.ico" {...props} alt="Spotify Icon" />
-					)}
-					sx={{
-						height: 190,
-						resize: "both",
-						background: "#3C5B01",
-						zIndex: zIndices.Spotify || 1,
-					}}
-				>
-					<iframe
-						title="Spotify"
-						src="https://open.spotify.com/embed/album/6kM9YkGOl27eV5U3rSO0BP"
-						allow="encrypted-media"
-						onFocus={() => handleApplicationFocus("Spotify")}
-						style={iframeStyle}
-					/>
-				</Application>
 				<Link to="/">
 					<Box
 						sx={{
@@ -117,6 +98,27 @@ const Monitor = () => {
 						/>
 					</Box>
 				</Link>
+				<Application
+					title="Spotify"
+					onFocus={() => handleApplicationFocus("Spotify")}
+					Icon={(props) => (
+						<img src="/images/w2k_wmp_7.ico" {...props} alt="Spotify Icon" />
+					)}
+					sx={{
+						height: 190,
+						resize: "both",
+						background: "#3C5B01",
+						zIndex: zIndices.Spotify || 1,
+					}}
+				>
+					<iframe
+						title="Spotify"
+						src="https://open.spotify.com/embed/album/6kM9YkGOl27eV5U3rSO0BP"
+						allow="encrypted-media"
+						onFocus={() => handleApplicationFocus("Spotify")}
+						style={iframeStyle}
+					/>
+				</Application>
 				<Application
 					title="YouTube"
 					onFocus={() => handleApplicationFocus("YouTube")}
@@ -183,6 +185,22 @@ const Monitor = () => {
 				>
 					<Minesweeper />
 				</Application>
+				{!!openAIApiKey && (
+					<Application
+						title="MSN"
+						onFocus={() => handleApplicationFocus("Msn")}
+						Icon={(props) => (
+							<img src="/images/msn.png" {...props} alt="Msn Icon" />
+						)}
+						sx={{
+							height: "fit-content",
+							width: "fit-content",
+							zIndex: zIndices.Msn || 1,
+						}}
+					>
+						<Msn />
+					</Application>
+				)}
 				<Application
 					title="Doom"
 					onFocus={() => handleApplicationFocus("Doom")}
