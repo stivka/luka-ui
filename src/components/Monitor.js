@@ -17,6 +17,11 @@ const Monitor = () => {
 	const doomframeRef = useRef(null);
 	const [switchedOn, setSwitchedOn] = useLocalStorage("monitor-on", false);
 	const [zIndices, setZIndices] = useState({});
+	const [achievements] = useLocalStorage("parameters", {
+		levelTwo: false,
+		hundredKills: false,
+		gameCompleted: false,
+	});
 
 	const handleApplicationFocus = (title) => {
 		const currentIndices = Object.values(zIndices);
@@ -259,6 +264,57 @@ const Monitor = () => {
 					Remember to turn me on ;)
 				</Typography>
 			</Box>
+			{achievements.levelTwo && (
+				<Box
+					id="doomguy-shotgun-sticker"
+					sx={{
+						position: "absolute",
+						top: "67%",
+						left: "1.5%",
+						height: "15%",
+						width: "12%",
+						cursor: "unset",
+						backgroundImage: "url(images/doom/lvl2.png)",
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+						backgroundRepeat: "no-repeat",
+					}}
+				/>
+			)}
+			{achievements.gameCompleted && (
+				<Box
+					id="cyberdemon-sticker"
+					sx={{
+						position: "absolute",
+						top: "69%",
+						left: "31%",
+						height: "15%",
+						width: "12%",
+						cursor: "unset",
+						backgroundImage: "url(images/doom/gamefinished.png)",
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+						backgroundRepeat: "no-repeat",
+					}}
+				/>
+			)}
+			{achievements.hundredKills && (
+				<Box
+					id="doomguy-rip-and-tear-sticker"
+					sx={{
+						position: "absolute",
+						top: "-2%",
+						left: "0%",
+						height: "14%",
+						width: "15%",
+						cursor: "unset",
+						backgroundImage: "url(images/doom/100kills.png)",
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+						backgroundRepeat: "no-repeat",
+					}}
+				/>
+			)}
 		</Box>
 	);
 };

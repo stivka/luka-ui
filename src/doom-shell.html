@@ -307,6 +307,8 @@
 
     let isStorageSyncing = false;
 
+    let killCount = 0;
+
     var Module = {
       keyboardListeningElement: captchaContainer,
       arguments: [
@@ -366,7 +368,7 @@
       ],
       postRun: [],
       onSaveGame: function () {
-        console.log("Game saved: Syncing IndexedDB...");
+        logDebugMessage("Game saved: Syncing IndexedDB...");
 
         if (isStorageSyncing) {
           console.warn("Sync already in progress, skipping...");
@@ -379,18 +381,35 @@
           if (err) {
             console.error("Failed to sync to IndexedDB after save:", err);
           } else {
-            console.log("Auto-sync: Save data persisted to IndexedDB.");
+            logDebugMessage("Auto-sync: Save data persisted to IndexedDB.");
           }
         });
       },
       onPlayerBorn: function () {
         logDebugMessage("Player born");
+        killCount = 0;
       },
       onPlayerDeath: function () {
         logDebugMessage("Player died");
       },
       onEnemyKilled: function () {
-        logDebugMessage("Enemy killed");
+        killCount++;
+        logDebugMessage(`Enemy killed: ${killCount}`);
+
+        if (killCount === 100) {
+          logDebugMessage("100 kills achieved");
+          const parameters = JSON.parse(localStorage.getItem('parameters'));
+          localStorage.setItem('parameters', JSON.stringify({ ...parameters, hundredKills: true }));
+        }
+      },
+      onLevelStart: function () {
+        const level = Module._G_GetGameMap();
+        logDebugMessage(`Level started: ${level}`);
+
+        if (level === 2) {
+          const parameters = JSON.parse(localStorage.getItem('parameters'));
+          localStorage.setItem('parameters', JSON.stringify({ ...parameters, levelTwo: true }));
+        }
       },
       print: function (text) {
         if (arguments.length > 1)

@@ -68,6 +68,10 @@ static const char rcsid[] = "$Id: g_game.c,v 1.8 1997/02/03 22:45:09 b1 Exp $";
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
+EMSCRIPTEN_KEEPALIVE
+int G_GetGameMap() {
+    return gamemap;
+}
 #endif
 
 #define SAVEGAMESIZE 0x2c000
@@ -400,6 +404,10 @@ extern gamestate_t wipegamestate;
 
 void G_DoLoadLevel(void) {
   int i;
+
+  #ifdef __EMSCRIPTEN__
+  EM_ASM(Module.onLevelStart());
+  #endif
 
   // Set the sky map.
   // First thing, we have a dummy sky texture name,
