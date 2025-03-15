@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
+import InternetExplorer from "./InternetExplorer";
 import Minesweeper from "./Minesweeper";
 
 const iframeStyle = {
@@ -159,20 +160,11 @@ const Monitor = () => {
 						zIndex: zIndices.Internet || 1,
 					}}
 				>
-					<iframe
-						title="Internet Explorer"
-						src="https://www.neti.ee"
-						height="484px"
-						width="640px"
-						allow="clipboard-write; encrypted-media;"
-						onFocus={() => handleApplicationFocus("Internet")}
-						style={{ aspectRatio: "4/3", ...iframeStyle }}
-						allowFullScreen
-					/>
+					<InternetExplorer style={iframeStyle} />
 				</Application>
 				<Application
 					title="Minesweeper"
-					onFocus={() => handleApplicationFocus("Sweeper")}
+					onFocus={() => handleApplicationFocus("Minesweeper")}
 					Icon={(props) => (
 						<img
 							src="/images/minesweeper.webp"
