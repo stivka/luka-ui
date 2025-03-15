@@ -176,26 +176,6 @@ const Monitor = () => {
 					<Minesweeper />
 				</Application>
 				<Application
-					title="Tahvel"
-					onFocus={() => handleApplicationFocus("Tahvel")}
-					Icon={(props) => (
-						<img
-							src="/images/minesweeper.webp"
-							{...props}
-							alt="Minesweeper Icon"
-						/>
-					)}
-					sx={{
-						height: "fit-content",
-						width: "fit-content",
-						zIndex: zIndices.Tahvel || 1,
-					}}
-				>
-					<Box sx={{ backgroundColor: "cyan", color: "#fff" }}>
-						<Typography variant="h1">Tahvel</Typography>
-					</Box>
-				</Application>
-				<Application
 					title="Doom"
 					onFocus={() => handleApplicationFocus("Doom")}
 					onFullScreen={handleDoomFullscreen}

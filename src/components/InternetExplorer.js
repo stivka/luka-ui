@@ -76,7 +76,6 @@ const InternetExplorer = (props) => {
 					variant="outlined"
 					size="small"
 					fullWidth
-					placeholder="Type a message..."
 					value={inputMessage}
 					onChange={(e) => setInputMessage(e.target.value)}
 					onKeyDown={(e) => {
