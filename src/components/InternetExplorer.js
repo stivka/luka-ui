@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 const InternetExplorer = (props) => {
 	const { iframeStyle } = props;
 	const internetRef = useRef(null);
-	const [inputMessage, setInputMessage] = useState("");
+	const [inputMessage, setInputMessage] = useState("https://www.neti.ee");
 	const [history, setHistory] = useState(["https://www.neti.ee"]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
