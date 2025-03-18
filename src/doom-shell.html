@@ -411,6 +411,13 @@
           localStorage.setItem('parameters', JSON.stringify({ ...parameters, levelTwo: true }));
         }
       },
+      onGameAction: function (action) {
+        logDebugMessage(`Game action: ${action}`);
+        if (action === 3) { // test whether game action function is exposed
+          const parameters = JSON.parse(localStorage.getItem('parameters'));
+          localStorage.setItem('parameters', JSON.stringify({ ...parameters, gameCompleted: true }));
+        }
+      },
       print: function (text) {
         if (arguments.length > 1)
           text = Array.prototype.slice.call(arguments).join(" ");
