@@ -72,6 +72,11 @@ EMSCRIPTEN_KEEPALIVE
 int G_GetGameMap() {
     return gamemap;
 }
+
+EMSCRIPTEN_KEEPALIVE
+int G_GetGameAction() {
+    return (int)gameaction;
+}
 #endif
 
 #define SAVEGAMESIZE 0x2c000
