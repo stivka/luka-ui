@@ -7683,6 +7683,7 @@ var ___wasm_call_ctors = () => (___wasm_call_ctors = wasmExports['__wasm_call_ct
 var _malloc = (a0) => (_malloc = wasmExports['malloc'])(a0);
 var _calloc = (a0, a1) => (_calloc = wasmExports['calloc'])(a0, a1);
 var _G_GetGameMap = Module['_G_GetGameMap'] = () => (_G_GetGameMap = Module['_G_GetGameMap'] = wasmExports['G_GetGameMap'])();
+var _G_GetGameAction = Module['_G_GetGameAction'] = () => (_G_GetGameAction = Module['_G_GetGameAction'] = wasmExports['G_GetGameAction'])();
 var _G_DoReborn = Module['_G_DoReborn'] = (a0) => (_G_DoReborn = Module['_G_DoReborn'] = wasmExports['G_DoReborn'])(a0);
 var _main = Module['_main'] = (a0, a1) => (_main = Module['_main'] = wasmExports['__main_argc_argv'])(a0, a1);
 var _memcpy = (a0, a1, a2) => (_memcpy = wasmExports['memcpy'])(a0, a1, a2);
