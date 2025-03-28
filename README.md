@@ -68,3 +68,50 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `npm run compile-doom` on windows
+
+#### Enable and install WLS ####
+This requires Windows Linux Subsystem installed and enabled 
+1. Make sure virtualisation is enabled in BIOS cpu configuration settings
+2. Enable virtualisation in Windows `wsl.exe --install --no-distribution`
+3. Install Ubuntu `wsl.exe --install Ubuntu`
+4. Update WSL to latest version `wsl --update`
+5. Now open Ubuntu from Windows search or by running
+
+#### Fix WLS permissions ####
+WLS does not have required permissions for files mounted outside of it (in Windows) by default.  
+We need to fix it by configuring WLS to not check permissions:    
+
+Edit WSL conf:  
+`sudo nano /etc/wsl.conf`  
+Add following to configuration:  
+```
+[automount]
+options = "metadata,umask=22,fmask=11,noacl"
+```
+Restart WSL from Windows Terminal:  
+`wsl --shutdown`  
+Open Ubuntu WLS again and return back to project folder:  
+`cd /mnt/c/Users/<PATH_TO_PROJECT>/luka-ui` 
+
+#### Install all dependencies ####
+Once you are running Ubuntu Bash, install all dependencies
+1. `sudo apt update` // Update packages
+2. `sudo apt install build-essential autoconf automake libtool dos2unix` // Install needed packages
+3. `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` // Get Brew
+4. `eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"` // Install Brew
+5. `source ~/.bashrc` // Reload Bash
+6. `brew install emscripten` // Install emscripten
+7. `brew install autoconf automake libtool` // Install some additional tooling 
+
+#### Fix some line endings and compile Doom ####
+1. `dos2unix build-doom.sh` // Fix file endings for Bash script
+2. `cd src/packages/sdldoom-1.10` // Go to Doom port
+3. `dos2unix configure configure.in Makefile.in` // Fix additional file endings
+4. `autoreconf -fi` // Regenerate the configure script and related file
+5. `export CC=emcc CXX=em++ AR=emar RANLIB=emranli` // Export some env vars
+6. `npm run compile-doom` // Compile doom now
+
+> Probably not required, buy when emmake throws error, then this might help before autoreconf: `CONFIG_FILES=Makefile ./configure`  
+> Also when previous step didn't fix emmake, then run `make clean` to cleanup broken build files
