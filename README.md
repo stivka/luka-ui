@@ -69,7 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### `npm run compile-doom` on windows
+### How to `npm run compile-doom` on windows
 
 #### Enable and install WLS ####
 This requires Windows Linux Subsystem installed and enabled 
@@ -77,7 +77,7 @@ This requires Windows Linux Subsystem installed and enabled
 2. Enable virtualisation in Windows `wsl.exe --install --no-distribution`
 3. Install Ubuntu `wsl.exe --install Ubuntu`
 4. Update WSL to latest version `wsl --update`
-5. Now open Ubuntu from Windows search or by running
+5. Now open Ubuntu from Windows search  
 
 #### Fix WLS permissions ####
 WLS does not have required permissions for files mounted outside of it (in Windows) by default.  
@@ -111,7 +111,7 @@ Once you are running Ubuntu Bash, install all dependencies
 3. `dos2unix configure configure.in Makefile.in` // Fix additional file endings
 4. `autoreconf -fi` // Regenerate the configure script and related file
 5. `export CC=emcc CXX=em++ AR=emar RANLIB=emranli` // Export some env vars
-6. `npm run compile-doom` // Compile doom now
+6. `npm run compile-doom` // Compile Doom now
 
 > Probably not required, buy when emmake throws error, then this might help before autoreconf: `CONFIG_FILES=Makefile ./configure`  
 > Also when previous step didn't fix emmake, then run `make clean` to cleanup broken build files
