@@ -99,8 +99,8 @@ Open Ubuntu WLS again and return back to project folder:
 Once you are running Ubuntu Bash, install all dependencies
 1. `sudo apt update` // Update packages
 2. `sudo apt install build-essential autoconf automake libtool dos2unix` // Install needed packages
-3. `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` // Get Brew
-4. `eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"` // Install Brew
+3. `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` // Install Brew
+4. `echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc` // Add Brew to Path
 5. `source ~/.bashrc` // Reload Bash
 6. `brew install emscripten` // Install emscripten
 7. `brew install autoconf automake libtool` // Install some additional tooling 
