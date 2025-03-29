@@ -552,6 +552,14 @@ void G_Ticker(void) {
   int buf;
   ticcmd_t *cmd;
 
+  #ifdef __EMSCRIPTEN__
+      if (gameaction != ga_nothing) {
+        EM_ASM_({
+          if (Module.onGameAction) Module.onGameAction($0);
+        }, gameaction);
+      }
+      #endif
+
   // do player reborns if needed
   for (i = 0; i < MAXPLAYERS; i++)
     if (playeringame[i] && players[i].playerstate == PST_REBORN)

@@ -584,10 +584,11 @@ async function createWasm() {
 
 var ASM_CONSTS = {
   148368: () => { Module.onLevelStart() },  
- 148390: () => { Module.onPlayerBorn() },  
- 148412: () => { Module.onSaveGame() },  
- 148432: () => { Module.onEnemyKilled() },  
- 148455: () => { Module.onPlayerDeath() }
+ 148390: ($0) => { if (Module.onGameAction) Module.onGameAction($0); },  
+ 148444: () => { Module.onPlayerBorn() },  
+ 148466: () => { Module.onSaveGame() },  
+ 148486: () => { Module.onEnemyKilled() },  
+ 148509: () => { Module.onPlayerDeath() }
 };
 
 // end include: preamble.js
