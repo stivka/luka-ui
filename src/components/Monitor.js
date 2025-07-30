@@ -39,10 +39,13 @@ const Monitor = () => {
 
 	const isDoomRunning = zIndices.at(-1) === Apps.Doom;
 
-	const handleApplicationFocus = (title) => setZIndices(previousValue => [
-		...previousValue.filter(value => value !== title),
-		title
-	]);
+	const handleApplicationFocus = (title) => typeof title === 'string' && setZIndices(
+		previousValue => [...previousValue.filter(value => value !== title), title]
+	);
+
+	const handleApplicationClose = (title) => setZIndices(
+		previousValue => previousValue.filter(value => value !== title)
+	);
 
 	const handleDoomFullscreen = () => {
 		if (doomframeRef.current) {
@@ -96,7 +99,8 @@ const Monitor = () => {
 			>
 				<Application
 					title={Apps.Spotify}
-					onFocus={() => handleApplicationFocus(Apps.Spotify)}
+					onFocus={handleApplicationFocus}
+					onClose={handleApplicationClose}
 					Icon={(props) => (
 						<img src="/images/w2k_wmp_7.ico" {...props} alt={`${Apps.Spotify} Icon`} />
 					)}
@@ -104,7 +108,7 @@ const Monitor = () => {
 						height: 190,
 						resize: "both",
 						background: "#3C5B01",
-						zIndex: zIndices.lastIndexOf(Apps.Spotify) || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Spotify) + 1 || 1,
 					}}
 				>
 					<iframe
@@ -139,14 +143,15 @@ const Monitor = () => {
 				</Link>
 				<Application
 					title={Apps.YouTube}
-					onFocus={() => handleApplicationFocus(Apps.YouTube)}
+					onFocus={handleApplicationFocus}
+					onClose={handleApplicationClose}
 					Icon={(props) => (
 						<img src="/images/w2k_wmp_52.ico" {...props} alt={`${Apps.YouTube} Icon`} />
 					)}
 					sx={{
 						height: 252,
 						width: 400,
-						zIndex: zIndices.lastIndexOf(Apps.YouTube) || 1,
+						zIndex: zIndices.lastIndexOf(Apps.YouTube) + 1 || 1,
 					}}
 				>
 					<iframe
@@ -159,7 +164,8 @@ const Monitor = () => {
 				</Application>
 				<Application
 					title={Apps.Internet}
-					onFocus={() => handleApplicationFocus(Apps.Internet)}
+					onFocus={handleApplicationFocus}
+					onClose={handleApplicationClose}
 					Icon={(props) => (
 						<img
 							src="/images/wxp_512.ico"
@@ -171,28 +177,30 @@ const Monitor = () => {
 						height: 486,
 						width: 640,
 						overflow: "auto",
-						zIndex: zIndices.lastIndexOf(Apps.Internet) || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Internet) + 1 || 1,
 					}}
 				>
 					<InternetExplorer style={iframeStyle} />
 				</Application>
 				<Application
 					title={Apps.Minesweeper}
-					onFocus={() => handleApplicationFocus(Apps.Minesweeper)}
+					onFocus={handleApplicationFocus}
+					onClose={handleApplicationClose}
 					Icon={(props) => (
 						<img src="/images/minesweeper.webp" {...props} alt={`${Apps.Minesweeper} Icon`} />
 					)}
 					sx={{
 						height: "fit-content",
 						width: "fit-content",
-						zIndex: zIndices.lastIndexOf(Apps.Minesweeper) || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Minesweeper) + 1 || 1,
 					}}
 				>
 					<Minesweeper />
 				</Application>
 				<Application
 					title={Apps.Doom}
-					onFocus={() => handleApplicationFocus(Apps.Doom)}
+					onFocus={handleApplicationFocus}
+					onClose={handleApplicationClose}
 					onFullScreen={handleDoomFullscreen}
 					Icon={(props) => (
 						<img src="/images/doom.ico" {...props} alt={`${Apps.Doom} Icon`} />
@@ -200,7 +208,7 @@ const Monitor = () => {
 					sx={{
 						height: 426,
 						width: 640,
-						zIndex: zIndices.lastIndexOf(Apps.Doom) || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Doom) + 1 || 1,
 					}}
 				>
 					<iframe

@@ -1,16 +1,26 @@
-import { Box } from "@mui/material";
 import React, { useRef, useState } from "react";
+import { Box } from "@mui/material";
 import useDrag from "../hooks/useDrag";
 
-const Application = ({ title, Icon, children, onFocus, onFullScreen, sx }) => {
+const Application = ({ title, Icon, children, onFocus, onClose, onFullScreen, sx }) => {
 	const containerRef = useRef(null);
 	const { position, startDragging } = useDrag(containerRef);
 	const [isRunning, setIsRunning] = useState(false);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 
 	const handleOpen = () => {
-		onFocus();
 		setIsRunning(true);
+		onFocus(title);
+	};
+
+	const handleFocus = () => {
+		onFocus(title);
+	}
+
+	const handleClose = (event) => {
+		event.stopPropagation();
+		setIsRunning(false);
+		onClose(title);
 	};
 
 	return (
@@ -52,8 +62,8 @@ const Application = ({ title, Icon, children, onFocus, onFullScreen, sx }) => {
 					>
 						<Box
 							id={`${title}-application`}
-							onClick={onFocus}
-							onFocus={onFocus}
+							onClick={handleFocus}
+							onFocus={handleFocus}
 							sx={{
 								position: "absolute",
 								top: isFullScreen ? 0 : "auto",
@@ -76,7 +86,7 @@ const Application = ({ title, Icon, children, onFocus, onFullScreen, sx }) => {
 							<Box
 								id={`${title}-application-header`}
 								onPointerDown={startDragging}
-								onClick={onFocus}
+								onClick={handleFocus}
 								sx={{
 									px: 0.5,
 									display: "flex",
@@ -132,7 +142,7 @@ const Application = ({ title, Icon, children, onFocus, onFullScreen, sx }) => {
 								</Box>
 								<Box
 									id={`${title}-application-close-button`}
-									onClick={() => setIsRunning(false)}
+									onClick={handleClose}
 									sx={{
 										width: 14,
 										height: 14,
@@ -161,7 +171,7 @@ const Application = ({ title, Icon, children, onFocus, onFullScreen, sx }) => {
 							</Box>
 							<Box
 								id={`${title}-application-content`}
-								onClick={onFocus}
+								onClick={handleFocus}
 								sx={{ height: "100%", width: "100%", cursor: "pointer" }}
 							>
 								{children}
