@@ -1,10 +1,23 @@
-import { Box, Typography } from "@mui/material";
 import React, { useRef, useState } from "react";
+import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Application from "./Application";
 import InternetExplorer from "./InternetExplorer";
 import Minesweeper from "./Minesweeper";
+import TurnOnNote from "./notes/TurnOnNote";
+import DoomInstructionsNote from "./notes/DoomInstructionsNote";
+import LevelTwoSticker from "./stickers/LevelTwoSticker";
+import GameCompletedSticker from "./stickers/GameCompletedSticker";
+import HundredKillsSticker from "./stickers/HundredKillsSticker";
+
+const Apps = {
+	Spotify: 'Spotify',
+	YouTube: 'YouTube',
+	Internet: 'Internet Explorer',
+	Minesweeper: 'Minesweeper',
+	Doom: 'Doom',
+}
 
 const iframeStyle = {
 	height: "calc(100% - 24px)",
@@ -17,18 +30,19 @@ const iframeStyle = {
 const Monitor = () => {
 	const doomframeRef = useRef(null);
 	const [switchedOn, setSwitchedOn] = useLocalStorage("monitor-on", false);
-	const [zIndices, setZIndices] = useState({});
+	const [zIndices, setZIndices] = useState([]);
 	const [achievements] = useLocalStorage("parameters", {
 		levelTwo: false,
 		hundredKills: false,
 		gameCompleted: false,
 	});
 
-	const handleApplicationFocus = (title) => {
-		const currentIndices = Object.values(zIndices);
-		const maxZIndex = currentIndices.length ? Math.max(...currentIndices) : 0;
-		setZIndices({ ...zIndices, [title]: maxZIndex + 1 });
-	};
+	const isDoomRunning = zIndices.at(-1) === Apps.Doom;
+
+	const handleApplicationFocus = (title) => setZIndices(previousValue => [
+		...previousValue.filter(value => value !== title),
+		title
+	]);
 
 	const handleDoomFullscreen = () => {
 		if (doomframeRef.current) {
@@ -81,23 +95,23 @@ const Monitor = () => {
 				}}
 			>
 				<Application
-					title="Spotify"
-					onFocus={() => handleApplicationFocus("Spotify")}
+					title={Apps.Spotify}
+					onFocus={() => handleApplicationFocus(Apps.Spotify)}
 					Icon={(props) => (
-						<img src="/images/w2k_wmp_7.ico" {...props} alt="Spotify Icon" />
+						<img src="/images/w2k_wmp_7.ico" {...props} alt={`${Apps.Spotify} Icon`} />
 					)}
 					sx={{
 						height: 190,
 						resize: "both",
 						background: "#3C5B01",
-						zIndex: zIndices.Spotify || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Spotify) || 1,
 					}}
 				>
 					<iframe
-						title="Spotify"
+						title={Apps.Spotify}
 						src="https://open.spotify.com/embed/album/6kM9YkGOl27eV5U3rSO0BP"
 						allow="encrypted-media"
-						onFocus={() => handleApplicationFocus("Spotify")}
+						onFocus={() => handleApplicationFocus(Apps.Spotify)}
 						style={iframeStyle}
 					/>
 				</Application>
@@ -124,19 +138,19 @@ const Monitor = () => {
 					</Box>
 				</Link>
 				<Application
-					title="YouTube"
-					onFocus={() => handleApplicationFocus("YouTube")}
+					title={Apps.YouTube}
+					onFocus={() => handleApplicationFocus(Apps.YouTube)}
 					Icon={(props) => (
-						<img src="/images/w2k_wmp_52.ico" {...props} alt="YouTube Icon" />
+						<img src="/images/w2k_wmp_52.ico" {...props} alt={`${Apps.YouTube} Icon`} />
 					)}
 					sx={{
 						height: 252,
 						width: 400,
-						zIndex: zIndices.YouTube || 1,
+						zIndex: zIndices.lastIndexOf(Apps.YouTube) || 1,
 					}}
 				>
 					<iframe
-						title="YouTube video"
+						title={Apps.YouTube}
 						src="https://www.youtube.com/embed/sCVycaNFAKU"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						style={{ aspectRatio: "16/9", ...iframeStyle }}
@@ -144,58 +158,54 @@ const Monitor = () => {
 					/>
 				</Application>
 				<Application
-					title="Internet Explorer"
-					onFocus={() => handleApplicationFocus("Internet")}
+					title={Apps.Internet}
+					onFocus={() => handleApplicationFocus(Apps.Internet)}
 					Icon={(props) => (
 						<img
 							src="/images/wxp_512.ico"
 							{...props}
-							alt="Internet Explorer Icon"
+							alt={`${Apps.Internet} Icon`}
 						/>
 					)}
 					sx={{
 						height: 486,
 						width: 640,
 						overflow: "auto",
-						zIndex: zIndices.Internet || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Internet) || 1,
 					}}
 				>
 					<InternetExplorer style={iframeStyle} />
 				</Application>
 				<Application
-					title="Minesweeper"
-					onFocus={() => handleApplicationFocus("Minesweeper")}
+					title={Apps.Minesweeper}
+					onFocus={() => handleApplicationFocus(Apps.Minesweeper)}
 					Icon={(props) => (
-						<img
-							src="/images/minesweeper.webp"
-							{...props}
-							alt="Minesweeper Icon"
-						/>
+						<img src="/images/minesweeper.webp" {...props} alt={`${Apps.Minesweeper} Icon`} />
 					)}
 					sx={{
 						height: "fit-content",
 						width: "fit-content",
-						zIndex: zIndices.Minesweeper || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Minesweeper) || 1,
 					}}
 				>
 					<Minesweeper />
 				</Application>
 				<Application
-					title="Doom"
-					onFocus={() => handleApplicationFocus("Doom")}
+					title={Apps.Doom}
+					onFocus={() => handleApplicationFocus(Apps.Doom)}
 					onFullScreen={handleDoomFullscreen}
 					Icon={(props) => (
-						<img src="/images/doom.ico" {...props} alt="Doom Icon" />
+						<img src="/images/doom.ico" {...props} alt={`${Apps.Doom} Icon`} />
 					)}
 					sx={{
 						height: 426,
 						width: 640,
-						zIndex: zIndices.Doom || 1,
+						zIndex: zIndices.lastIndexOf(Apps.Doom) || 1,
 					}}
 				>
 					<iframe
 						ref={doomframeRef}
-						title="Doom"
+						title={Apps.Doom}
 						src="doom/doom.html"
 						allow="encrypted-media;"
 						style={{ aspectRatio: "8/5", ...iframeStyle }}
@@ -229,84 +239,11 @@ const Monitor = () => {
 					backgroundColor: switchedOn ? "#9ee49efa" : "none",
 				}}
 			/>
-			<Box
-				id="monitor-sticky-note"
-				sx={{
-					position: "absolute",
-					top: "77.9%",
-					left: "82.1%",
-					height: "12%",
-					width: "14%",
-					backgroundColor: "#e6db7c",
-					color: "#555",
-					py: 1,
-					px: 2,
-					fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-					borderRadius: 1,
-					boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-					transform: "rotate(-2deg)",
-					cursor: "default !important",
-				}}
-			>
-				<Typography
-					variant="caption"
-					align="center"
-					sx={{ cursor: "default !important" }}
-				>
-					Remember to turn me on ;)
-				</Typography>
-			</Box>
-			{achievements.levelTwo && (
-				<Box
-					id="doomguy-shotgun-sticker"
-					sx={{
-						position: "absolute",
-						top: "67%",
-						left: "1.5%",
-						height: "15%",
-						width: "12%",
-						cursor: "unset",
-						backgroundImage: "url(images/doom/lvl2.png)",
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						backgroundRepeat: "no-repeat",
-					}}
-				/>
-			)}
-			{achievements.gameCompleted && (
-				<Box
-					id="cyberdemon-sticker"
-					sx={{
-						position: "absolute",
-						top: "69%",
-						left: "31%",
-						height: "15%",
-						width: "12%",
-						cursor: "unset",
-						backgroundImage: "url(images/doom/gamefinished.png)",
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						backgroundRepeat: "no-repeat",
-					}}
-				/>
-			)}
-			{achievements.hundredKills && (
-				<Box
-					id="doomguy-rip-and-tear-sticker"
-					sx={{
-						position: "absolute",
-						top: "-2%",
-						left: "0%",
-						height: "14%",
-						width: "15%",
-						cursor: "unset",
-						backgroundImage: "url(images/doom/100kills.png)",
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						backgroundRepeat: "no-repeat",
-					}}
-				/>
-			)}
+			{!switchedOn && <TurnOnNote />}
+			{switchedOn && isDoomRunning && <DoomInstructionsNote />}
+			{achievements.levelTwo && <LevelTwoSticker />}
+			{achievements.gameCompleted && <GameCompletedSticker />}
+			{achievements.hundredKills && <HundredKillsSticker />}
 		</Box>
 	);
 };
