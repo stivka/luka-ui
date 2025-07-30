@@ -392,6 +392,11 @@
       onPlayerDeath: function () {
         logDebugMessage("Player died");
       },
+      onGameFinished: function () {
+        logDebugMessage("Game finished");
+        const parameters = JSON.parse(localStorage.getItem('parameters'));
+        localStorage.setItem('parameters', JSON.stringify({ ...parameters, gameCompleted: true }));
+      },
       onEnemyKilled: function () {
         killCount++;
         logDebugMessage(`Enemy killed: ${killCount}`);
@@ -409,13 +414,6 @@
         if (level === 2) {
           const parameters = JSON.parse(localStorage.getItem('parameters'));
           localStorage.setItem('parameters', JSON.stringify({ ...parameters, levelTwo: true }));
-        }
-      },
-      onGameAction: function (action) {
-        logDebugMessage(`Game action: ${action}`);
-        if (action === 3) { // test whether game action function is exposed
-          const parameters = JSON.parse(localStorage.getItem('parameters'));
-          localStorage.setItem('parameters', JSON.stringify({ ...parameters, gameCompleted: true }));
         }
       },
       print: function (text) {

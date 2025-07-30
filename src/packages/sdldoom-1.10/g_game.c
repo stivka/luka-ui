@@ -70,7 +70,7 @@ static const char rcsid[] = "$Id: g_game.c,v 1.8 1997/02/03 22:45:09 b1 Exp $";
 #include <emscripten.h>
 EMSCRIPTEN_KEEPALIVE
 int G_GetGameMap() {
-    return gamemap;
+  return gamemap;
 }
 #endif
 
@@ -551,14 +551,6 @@ void G_Ticker(void) {
   int i;
   int buf;
   ticcmd_t *cmd;
-
-  #ifdef __EMSCRIPTEN__
-      if (gameaction != ga_nothing) {
-        EM_ASM_({
-          if (Module.onGameAction) Module.onGameAction($0);
-        }, gameaction);
-      }
-      #endif
 
   // do player reborns if needed
   for (i = 0; i < MAXPLAYERS; i++)
