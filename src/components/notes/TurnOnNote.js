@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 export default function TurnOnNote() {
   return (
     <Box
-      id="monitor-sticky-note"
+      id="turn-on-sticky-note"
       sx={{
         position: "absolute",
         top: "77.9%",

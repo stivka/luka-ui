@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 export default function DoomInstructionsNote() {
   return (
     <Box
-      id="monitor-sticky-note"
+      id="doom-instructions-sticky-note"
       sx={{
         position: "absolute",
         top: "77.9%",
