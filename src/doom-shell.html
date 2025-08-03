@@ -392,6 +392,11 @@
       onPlayerDeath: function () {
         logDebugMessage("Player died");
       },
+      onGameFinished: function () {
+        logDebugMessage("Game finished");
+        const parameters = JSON.parse(localStorage.getItem('parameters'));
+        localStorage.setItem('parameters', JSON.stringify({ ...parameters, gameCompleted: true }));
+      },
       onEnemyKilled: function () {
         killCount++;
         logDebugMessage(`Enemy killed: ${killCount}`);

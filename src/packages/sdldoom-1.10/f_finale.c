@@ -42,6 +42,10 @@ rcsid[] = "$Id: f_finale.c,v 1.5 1997/02/03 21:26:34 b1 Exp $";
 #include "doomstat.h"
 #include "r_state.h"
 
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+#endif
+
 // ?
 //#include "doomstat.h"
 //#include "r_local.h"
@@ -95,6 +99,10 @@ void	F_CastDrawer (void);
 //
 void F_StartFinale (void)
 {
+		#ifdef __EMSCRIPTEN__
+    	EM_ASM(Module.onGameFinished());
+		#endif
+
     gameaction = ga_nothing;
     gamestate = GS_FINALE;
     viewactive = false;
@@ -716,8 +724,15 @@ void F_Drawer (void)
 	      V_DrawPatch (0,0,0,
 			 W_CacheLumpName("CREDIT",PU_CACHE));
 	    else
-	      V_DrawPatch (0,0,0,
-			 W_CacheLumpName("HELP2",PU_CACHE));
+	    {
+	      // Check if HELP2 exists, use CREDIT as fallback
+	      if (W_CheckNumForName("HELP2") >= 0)
+	        V_DrawPatch (0,0,0,
+			   W_CacheLumpName("HELP2",PU_CACHE));
+	      else
+	        V_DrawPatch (0,0,0,
+			   W_CacheLumpName("CREDIT",PU_CACHE));
+	    }
 	    break;
 	  case 2:
 	    V_DrawPatch(0,0,0,
