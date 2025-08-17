@@ -2,6 +2,7 @@ import {Box, Unstable_Grid2 as Grid, useMediaQuery} from '@mui/material';
 import CutoutEyes from "../components/CutoutEyes";
 import EmailButton from "../components/EmailButton";
 import Guestbook from "../components/Guestbook";
+import StripeButton from "../components/StripeButton";
 import VisitorCounter from "../components/VisitorCounter";
 // import useEnsureSession from '../hooks/useEnsureSession';
 import {Link} from "react-router-dom";
@@ -36,7 +37,7 @@ export default function MainApp() {
                         </Box>
                     </Grid>
                     <Grid xs={12}
-                          sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '760px'}}>
+                          sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '560px'}}>
                         <iframe
                             title="Spotify"
                             src={"https://open.spotify.com/embed/playlist/0zLzL0j1iLcujonECJc4MM?utm_source=generator"}
@@ -45,6 +46,9 @@ export default function MainApp() {
                             style={{border: "none", margin: '80px', justifyContent: 'center', alignItems: 'center'}}
                             allow="encrypted-media"
                         />
+                    </Grid>
+                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <StripeButton />
                     </Grid>
                     <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <img src="/images/gummibears.svg" alt="Magic Ball"
