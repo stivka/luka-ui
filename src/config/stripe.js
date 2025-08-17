@@ -1,8 +1,8 @@
 // Stripe configuration
 export const STRIPE_CONFIG = {
-  // Test keys - replace with live keys for production
-  publishableKey: 'pk_test_51Rx6qvRdv3r6QYHNDbhx41Zc2cTkRCZumB9X8nE5O3KpgihMQAoQfmplV0uM8uYq1sbM9X0a8VEMHSQZmNPE5Xlx00Y2A4XOTd',
-  buyButtonId: 'buy_btn_1Rx7XaRdv3r6QYHNCt9cKfNa',
+  // Production keys - safe to commit (domain-restricted)
+  publishableKey: 'pk_live_your_actual_live_key_here', // Replace with your live key
+  buyButtonId: 'buy_btn_your_actual_live_button_id_here', // Replace with your live button ID
   
   // Environment detection
   isProduction: process.env.NODE_ENV === 'production',

@@ -2,6 +2,43 @@
 
 This project was bootstrapped with [Create React MainApp](https://github.com/facebook/create-react-app).
 
+## Stripe Payment Setup
+
+This project includes Stripe payment integration. To set up payments:
+
+### 1. Update Stripe Configuration
+Edit `src/config/stripe.js` and replace the placeholder values with your actual Stripe credentials:
+- `publishableKey` - Your Stripe publishable key (starts with `pk_live_`)
+- `buyButtonId` - Your Stripe buy button ID
+
+### 2. Security Model
+Stripe's security works through **cryptographic signing**:
+- ✅ **Safe to commit**: Publishable keys (`pk_...`) and buy button IDs
+- ❌ **Never commit**: Secret keys (`sk_...`) - these are for server-side only
+- **Request Signing**: The publishable key signs payment requests with domain information
+- **Stripe Verification**: Stripe's servers verify the signature and domain match your configuration
+- **No Server Required**: This model works entirely client-side for simple payments
+
+### 3. How It Works
+1. **Client-side**: Publishable key signs the payment request with domain info
+2. **Stripe Verification**: Stripe verifies the signature and domain match your dashboard settings
+3. **Payment Processing**: Stripe handles everything on their secure servers
+4. **Redirect**: User returns to your success/cancel URL
+
+### 4. When You Need Server-Side Validation
+**Our current setup doesn't require server-side code** - perfect for:
+- ✅ Simple one-time payments
+- ✅ Digital product delivery
+- ✅ Donations
+- ✅ Any scenario where you don't need to track payments
+
+**You'd only need server-side validation if you want to:**
+- ❌ Store payment records in your database
+- ❌ Verify payments before giving access to content
+- ❌ Handle subscription management
+- ❌ Send custom confirmation emails
+- ❌ Update user accounts after payment
+
 ## Available Scripts
 
 In the project directory, you can run:
