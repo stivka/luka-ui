@@ -65,14 +65,14 @@ export default function MainApp() {
                 <Grid container xs={12} md={5} sx={{height: '100%', overflow: 'auto', paddingTop: '2rem'}}>
                     <Grid xs={3}
                           sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/images/kyynal_299x500.gif" alt="Candle1"
+                        <img src="/images/popart_lightning_225x225.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <CutoutEyes/>
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/images/kyynal_299x500.gif" alt="Candle1"
+                        <img src="/images/popart_lightning_225x225.gif" alt="Candle1"
                              style={{maxWidth: '100px', maxHeight: '100px', width: '100%', height: 'auto'}}/>
                     </Grid>
                     <Grid xs={12}>

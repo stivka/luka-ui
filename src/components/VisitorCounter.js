@@ -13,7 +13,7 @@ const VisitorCounter = () => {
 				left: 0,
 				width: 260,
 				height: 100,
-				backgroundImage: `url("/images/muuse.png")`,
+				backgroundImage: `url("/images/muuse_snow.gif")`,
 				backgroundRepeat: "no-repeat",
 				backgroundSize: "contain",
 				fontFamily: "'Margarine', sans-serif",
