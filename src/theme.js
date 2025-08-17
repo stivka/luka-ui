@@ -3,13 +3,13 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#51fff1",
+			main: "#800000",
 		},
 		spotifyDarkGrey: {
 			main: "#636d6d",
 		},
 		spotifyLightGrey: {
-			main: "#6e7979",
+			main: "#000000",
 		},
 		background: {
 			default: "#ff0f7b",
@@ -40,7 +40,7 @@ const theme = createTheme({
 				body: {
 					cursor: "url(/images/cursor_128x128_default.png), pointer !important",
 					background:
-						"linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(241, 100%, 50%, 1) 100%)",
+						"linear-gradient(90deg, hsla(0, 0%, 0%, 1) 40%, hsla(0, 100%, 20%, 1) 60%)",
 				},
 				a: {
 					cursor: "url(/images/cursor_128x128_default.png), pointer !important",

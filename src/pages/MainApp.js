@@ -39,7 +39,7 @@ export default function MainApp() {
                           sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '760px'}}>
                         <iframe
                             title="Spotify"
-                            src={"https://open.spotify.com/embed/album/6kM9YkGOl27eV5U3rSO0BP"}
+                            src={"https://open.spotify.com/embed/playlist/0zLzL0j1iLcujonECJc4MM?utm_source=generator"}
                             width="100%"
                             height="100%"
                             style={{border: "none", margin: '80px', justifyContent: 'center', alignItems: 'center'}}
@@ -78,7 +78,7 @@ export default function MainApp() {
                     <Grid xs={12}>
                         <iframe
                             title="YouTube"
-                            src="https://www.youtube.com/embed/sCVycaNFAKU?autoplay=1"
+                            src="https://www.youtube.com/embed/X6c77l6SrUM?si=fuJAI_ZSznVLSSJi"
                             width="100%"
                             height="100%"
                             style={{border: "none", maxWidth: '100%', maxHeight: '100%', aspectRatio: '16/9'}}
