@@ -113,7 +113,7 @@ const Monitor = () => {
 				>
 					<iframe
 						title={Apps.Spotify}
-						src="https://open.spotify.com/embed/album/6kM9YkGOl27eV5U3rSO0BP"
+						src="https://open.spotify.com/embed/playlist/0zLzL0j1iLcujonECJc4MM?utm_source=generator"
 						allow="encrypted-media"
 						onFocus={() => handleApplicationFocus(Apps.Spotify)}
 						style={iframeStyle}
@@ -156,7 +156,7 @@ const Monitor = () => {
 				>
 					<iframe
 						title={Apps.YouTube}
-						src="https://www.youtube.com/embed/sCVycaNFAKU"
+						src="https://www.youtube.com/embed/X6c77l6SrUM?si=fuJAI_ZSznVLSSJi"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						style={{ aspectRatio: "16/9", ...iframeStyle }}
 						allowFullScreen

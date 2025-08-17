@@ -75,7 +75,7 @@ const GuestbookWriter = () => {
 				color="primary"
 				type="submit"
 				fullWidth
-				sx={{ color: "#000428", borderRadius: 0 }}
+				sx={{ color: "#ffffff", borderRadius: 0 }}
 			>
 				Write
 			</Button>
