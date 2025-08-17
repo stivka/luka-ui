@@ -56,7 +56,7 @@ export default function CutoutEyes() {
 		// positioned relative to this Box.
 		<Box sx={{ position: "relative", width: "100%", height: "auto" }}>
 			<img
-				src="/images/cutout-eyes.png"
+				src="/images/cutout-eyes-alt.png"
 				alt="Eyes"
 				ref={faceRef}
 				style={{ width: "100%", height: "auto" }}
