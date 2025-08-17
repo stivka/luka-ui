@@ -3,10 +3,10 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#800000",
+			main: "#bfff00",
 		},
 		spotifyDarkGrey: {
-			main: "#636d6d",
+			main: "#000000",
 		},
 		spotifyLightGrey: {
 			main: "#000000",
@@ -25,9 +25,9 @@ const theme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+					cursor: "url(/images/cursor_64x64.png), pointer",
 					"&:hover": {
-						cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+						cursor: "url(/images/cursor_64x64.png), pointer",
 					},
 				},
 			},
@@ -35,15 +35,14 @@ const theme = createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				"*": {
-					cursor: "url(/images/cursor_128x128_default.png), auto",
+					cursor: "url(/images/cursor_64x64.png), auto",
 				},
 				body: {
-					cursor: "url(/images/cursor_128x128_default.png), pointer !important",
-					background:
-						"linear-gradient(90deg, hsla(0, 0%, 0%, 1) 40%, hsla(0, 100%, 20%, 1) 60%)",
+					cursor: "url(/images/cursor_64x64.png), pointer !important",
+					background: "#4a1fcc",
 				},
 				a: {
-					cursor: "url(/images/cursor_128x128_default.png), pointer !important",
+					cursor: "url(/images/cursor_64x64.png), pointer !important",
 				},
 				"*::-webkit-scrollbar": {
 					display: "none", // Hides the scrollbar
@@ -53,17 +52,17 @@ const theme = createTheme({
 		MuiFormHelperText: {
 			styleOverrides: {
 				root: {
-					color: "white",
+					color: "lime",
 				},
 			},
 		},
 		MuiInputBase: {
 			styleOverrides: {
 				input: {
-					color: "white",
-					cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+					color: "lime",
+					cursor: "url(/images/cursor_64x64.png), pointer",
 					"&:hover": {
-						cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+						cursor: "url(/images/cursor_64x64.png), pointer",
 					},
 				},
 			},
@@ -71,16 +70,16 @@ const theme = createTheme({
 		MuiInputLabel: {
 			styleOverrides: {
 				root: {
-					color: "white",
+					color: "lime",
 				},
 			},
 		},
 		MuiLink: {
 			styleOverrides: {
 				root: {
-					cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+					cursor: "url(/images/cursor_64x64.png), pointer",
 					"&:hover": {
-						cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+						cursor: "url(/images/cursor_64x64.png), pointer",
 					},
 				},
 			},
@@ -89,13 +88,13 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					"& fieldset": {
-						borderColor: "white",
+						borderColor: "lime",
 					},
 					"&:hover fieldset": {
-						borderColor: "white",
+						borderColor: "lime",
 					},
 					"&.Mui-focused fieldset": {
-						borderColor: "white",
+						borderColor: "lime",
 					},
 				},
 			},
@@ -104,10 +103,10 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					backgroundColor: "#6e7979",
-					color: "white",
+					color: "lime",
 					"&.Mui-selected": {
-						backgroundColor: "#51fff1",
-						color: "#000428",
+						backgroundColor: "lime",
+						color: "black",
 					},
 					"&:hover": {
 						backgroundColor: "#636d6d",
