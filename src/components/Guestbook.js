@@ -23,7 +23,7 @@ const Guestbook = () => {
 			<img
 				src="/images/msg_board_550x200.gif"
 				alt="Guestbook Banner"
-				style={{ width: "60%", height: "auto", flexShrink: 0, padding: 8 }}
+				style={{ width: "80%", height: "auto", flexShrink: 0, padding: 8 }}
 			/>
 			<GuestbookWriter />
 			{isPending && <Loading />}

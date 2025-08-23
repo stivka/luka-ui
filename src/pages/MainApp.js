@@ -46,13 +46,10 @@ export default function MainApp() {
                             allow="encrypted-media"
                         />
                     </Grid>
-                    <Grid xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/images/gummibears.svg" alt="Magic Ball"
-                             style={{width: '100%', height: 'auto', flexShrink: 0, padding: 8, marginLeft: 26}}/>/>
-                    </Grid>
                     <Grid xs={12}
                           sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-20px'}}>
-                        <img src="/images/magicball_200x200.gif" alt="Magic Ball"/>
+                        <img src="/images/tv_600x600.gif" alt="Magic Ball"
+                            style={{width: '100%', height: 'auto'}}/>
                     </Grid>
                 </Grid>
 
@@ -97,14 +94,27 @@ export default function MainApp() {
                             }}
                         >
                             <a href="https://instagram.com/lukastarkiller" target="_blank" rel="noopener noreferrer">
-                                <img src="/images/instagram_button.svg" alt="Instagram button"
-                                     style={{width: '100%', height: 'auto', cursor: "pointer"}}/>
+                                <img src="/images/old_instagram_logo.svg" alt="Instagram button"
+                                     style={{width: '70%', height: 'auto', cursor: "pointer"}}/>
                             </a>
                         </Box>
                     </Grid>
                     <Grid xs={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img src="/images/smoking_greek_godess_500x500.gif" alt="Smoking Greek Goddess"
-                             style={{width: '100%', height: 'auto'}}/>
+                    <Box
+                            sx={{
+                                width: '100%',
+                                height: 'auto',
+                                cursor: "pointer",
+                                "&:hover": {
+                                    cursor: "pointer"
+                                }
+                            }}
+                        >
+                            <a href="https://instagram.com/lukastarkiller" target="_blank" rel="noopener noreferrer">
+                                <img src="/images/soundcloud_gif.gif" alt="Soundcloud button"
+                                     style={{width: '50%', height: 'auto', cursor: "pointer"}}/>
+                            </a>
+                        </Box>
 
                     </Grid>
                     <Grid xs={3} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
