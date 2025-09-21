@@ -103,7 +103,7 @@ export default function MainApp() {
                         >
                             <a href="https://instagram.com/lukastarkiller" target="_blank" rel="noopener noreferrer">
                                 <img src="/images/old_instagram_logo.svg" alt="Instagram button"
-                                     style={{width: '70%', height: 'auto', cursor: "pointer"}}/>
+                                     style={{width: '80%', height: 'auto', cursor: "pointer"}}/>
                             </a>
                         </Box>
                     </Grid>
@@ -118,9 +118,9 @@ export default function MainApp() {
                                 }
                             }}
                         >
-                            <a href="https://instagram.com/lukastarkiller" target="_blank" rel="noopener noreferrer">
-                                <img src="/images/soundcloud_gif.gif" alt="Soundcloud button"
-                                     style={{width: '50%', height: 'auto', cursor: "pointer"}}/>
+                            <a href="https://soundcloud.com/luka-starkiller" target="_blank" rel="noopener noreferrer">
+                                <img src="/images/soundcloud_100x100.png" alt="Soundcloud button"
+                                     style={{width: 'auto', height: 'auto', cursor: "pointer"}}/>
                             </a>
                         </Box>
 
