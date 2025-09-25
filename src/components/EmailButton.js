@@ -6,7 +6,7 @@ const EmailButton = () => {
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {
-        navigator.clipboard.writeText('meelikalukner@gmail.com');
+        navigator.clipboard.writeText('starkillermanagement@gmail.com');
         setOpen(true);
     };
 
@@ -35,10 +35,10 @@ const EmailButton = () => {
                 }}
             >
                 <img
-                    src="/images/email_button_svg.svg"
+                    src="/images/email_gif.gif"
                     alt="Email"
                     style={{
-                        width: '100%',
+                        width: '95%',
                         height: 'auto',
                         cursor: "inherit",
                     }}

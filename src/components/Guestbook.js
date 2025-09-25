@@ -21,9 +21,9 @@ const Guestbook = () => {
 	return (
 		<Stack sx={{ alignItems: "center" }}>
 			<img
-				src="/images/guestbook_500x200.gif"
+				src="/images/msg_board_550x200.gif"
 				alt="Guestbook Banner"
-				style={{ width: "60%", height: "auto", flexShrink: 0, padding: 8 }}
+				style={{ width: "80%", height: "auto", flexShrink: 0, padding: 8 }}
 			/>
 			<GuestbookWriter />
 			{isPending && <Loading />}

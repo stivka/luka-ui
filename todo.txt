@@ -18,3 +18,5 @@ fix protruding column thre last elements
 hover
 
 resize Spotify?
+
+neti.ee browser colours are lime, change back to black

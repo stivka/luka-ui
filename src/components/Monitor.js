@@ -125,9 +125,9 @@ const Monitor = () => {
 							position: "absolute",
 							top: "45px",
 							left: "470px",
-							cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+							cursor: "url(/images/cursor_64x64.png), pointer",
 							"&:hover": {
-								cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+								cursor: "url(/images/cursor_64x64.png), pointer",
 							},
 						}}
 					>
@@ -136,7 +136,7 @@ const Monitor = () => {
 							alt="Website"
 							width="175%"
 							style={{
-								cursor: "url(/images/cursor_128x128_hover.gif), pointer",
+								cursor: "url(/images/cursor_64x64.png), pointer",
 							}}
 						/>
 					</Box>
