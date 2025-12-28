@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiUrl } from "../config";
 
 const request = async (method, url, body, options = {}) => {
-	const response = await fetch(`${apiUrl}${url}`, {
+	const response = await fetch(`${apiUrl}/api${url}`, {
 		method,
     body: body ? JSON.stringify(body) : undefined,
 		headers: {

@@ -6,6 +6,7 @@ import StripeButton from "../components/StripeButton";
 import VisitorCounter from "../components/VisitorCounter";
 // import useEnsureSession from '../hooks/useEnsureSession';
 import {Link} from "react-router-dom";
+import Transmission from "../components/Transmission";
 
 export default function MainApp() {
     const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
@@ -144,6 +145,9 @@ export default function MainApp() {
                     </Grid>
                 </Grid>
             </Grid>
+
+            <Transmission />
+
             <Box sx={{mt: 5, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', position: 'relative'}}>
                 <Box sx={{
                     width: {xs: '60%', md: 160},
