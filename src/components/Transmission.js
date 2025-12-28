@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useTransmission from "../hooks/useTransmission";
 import useTransmissionEnabled from "../hooks/useTransmissionEnabled";
 import TransmissionItem from "./TransmissionItem";
@@ -12,6 +12,7 @@ export default function Transmission() {
     const { items } = useTransmission(enabled);
     const [displayedItems, setDisplayedItems] = useState([]);
     const [newItemIds, setNewItemIds] = useState(new Set());
+    const containerRef = useRef(null);
 
     // Track new items for typing animation
     useEffect(() => {
@@ -27,7 +28,7 @@ export default function Transmission() {
                     setNewItemIds(prevIds => new Set([itemId, ...prevIds]));
                     
                     // Remove from new items after animation completes (estimate based on message length)
-                    const animationDuration = latestItem.message.length * 25 + 500;
+                    const animationDuration = latestItem.message.length * 60 + 1000;
                     setTimeout(() => {
                         setNewItemIds(prevIds => {
                             const updated = new Set(prevIds);
@@ -36,23 +37,35 @@ export default function Transmission() {
                         });
                     }, animationDuration);
                     
-                    return [latestItem, ...prev].slice(0, 5);
+                    // Add to end of array (will appear at bottom with column-reverse)
+                    // Limit to ~10 items to keep them in viewport
+                    const updated = [...prev, latestItem];
+                    return updated.slice(-10);
                 }
                 return prev;
             });
         }
     }, [items]);
 
+
     return (
-        <div style={{ 
-            position: "fixed", 
-            right: 16, 
-            bottom: 16, 
-            width: 400,
-            fontFamily: "'Courier New', 'Consolas', monospace",
-            fontSize: 12,
-            lineHeight: 1.4
-        }}>
+        <div 
+            ref={containerRef}
+            style={{ 
+                position: "fixed", 
+                right: 16, 
+                bottom: 16,
+                width: 400,
+                fontFamily: "'Courier New', 'Consolas', monospace",
+                fontSize: 12,
+                lineHeight: 1.4,
+                zIndex: 9999,
+                display: "flex",
+                flexDirection: "column-reverse",
+                alignItems: "flex-end",
+                pointerEvents: "none"
+            }}
+        >
             {displayedItems.map((item, index) => {
                 const itemId = `${item.ts}-${item.message}`;
                 const isNew = newItemIds.has(itemId);

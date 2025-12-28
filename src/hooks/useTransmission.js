@@ -23,7 +23,7 @@ export default function useTransmission(enabled = true) {
         es.addEventListener("notification", (e) => {
             try {
                 const msg = JSON.parse(e.data);
-                setItems((prev) => [msg, ...prev].slice(0, 5));
+                setItems((prev) => [msg, ...prev]);
             } catch (error) {
                 console.error("Failed to parse transmission message:", error);
             }

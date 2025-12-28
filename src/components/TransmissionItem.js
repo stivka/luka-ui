@@ -5,7 +5,7 @@ import useTypingAnimation from "../hooks/useTypingAnimation";
  * Individual transmission item with typing animation.
  */
 export default function TransmissionItem({ item, index, isNew }) {
-    const displayedMessage = useTypingAnimation(item.message, 25, isNew);
+    const displayedMessage = useTypingAnimation(item.message, 60, isNew);
 
     // Format timestamp to look like terminal log
     const formatTimestamp = (timestamp) => {
@@ -46,7 +46,10 @@ export default function TransmissionItem({ item, index, isNew }) {
                 border: "1px solid #00ff00",
                 borderLeftWidth: 3,
                 color: "#00ff00",
-                boxShadow: "0 0 8px rgba(0, 255, 0, 0.3)"
+                boxShadow: "0 0 8px rgba(0, 255, 0, 0.3)",
+                pointerEvents: "auto",
+                width: "100%",
+                maxWidth: 400
             }}
         >
             <div style={{ 
