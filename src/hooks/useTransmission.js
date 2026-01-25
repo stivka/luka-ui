@@ -17,7 +17,7 @@ export default function useTransmission(enabled = true) {
             return;
         }
 
-        const streamUrl = `${apiUrl}/api/transmissions/stream`;
+        const streamUrl = `${apiUrl}/api/stream`;
         const es = new EventSource(streamUrl);
 
         es.addEventListener("notification", (e) => {

@@ -23,13 +23,17 @@ export default function useTypingAnimation(text, speed = 60, enabled = true) {
             previousTextRef.current = text;
         }
 
-        if (!enabled || !text) {
-            // If disabled but we have completed text, keep it displayed
-            if (text && isComplete) {
-                setDisplayedText(text);
-            } else if (!enabled && !text) {
-                setDisplayedText("");
-            }
+        // If animation disabled, always show full text (no truncation).
+        // This matters when a message stops being "new" before typing completes.
+        if (!enabled) {
+            setDisplayedText(text || "");
+            setIsComplete(!!text);
+            return;
+        }
+
+        if (!text) {
+            setDisplayedText("");
+            setIsComplete(false);
             return;
         }
 

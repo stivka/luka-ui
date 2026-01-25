@@ -21,20 +21,18 @@ export default function TransmissionItem({ item, index, isNew }) {
         }
     };
 
-    // Generate receiver tag (simulate different receivers)
-    const getReceiverTag = (idx) => {
-        const receivers = [
-            "RX-001",
-            "RX-042",
-            "RX-7A3",
-            "RX-9F1",
-            "RX-B2C"
-        ];
-        return receivers[idx % receivers.length];
+    const normalizeTx = (tx) => {
+        if (!tx) return null;
+        // Keep it terminal-ish: upper-case and short.
+        const cleaned = String(tx).trim().toUpperCase();
+        if (!cleaned) return null;
+        // Railway public domains can be long; show last 18 chars.
+        return cleaned.length > 18 ? cleaned.slice(-18) : cleaned;
     };
 
     const timestamp = formatTimestamp(item.ts);
-    const receiverTag = getReceiverTag(index);
+    const tx = normalizeTx(item.tx);
+    const transmitterTag = tx ? `TX-${tx}` : "TX-UNKNOWN";
     const isTyping = isNew && displayedMessage.length < item.message.length;
 
     return (
@@ -58,7 +56,7 @@ export default function TransmissionItem({ item, index, isNew }) {
                 marginBottom: 4,
                 opacity: 0.8
             }}>
-                [{timestamp}] {receiverTag} | INCOMING
+                [{timestamp}] {transmitterTag} | INCOMING
             </div>
             <div style={{ color: "#00ff00" }}>
                 {displayedMessage}

@@ -68,10 +68,14 @@ Provides typing animation effect for text.
 
 ## Backend Endpoints
 
-### GET `/api/transmissions/stream`
-Establishes an SSE connection to receive transmissions.
+### GET `/api/stream`
+Establishes a unified SSE connection to receive both transmissions and visitor count updates.
 
 **Response:** Server-Sent Events stream
+
+**Event Types:**
+- `notification` - Transmission messages
+- `visitorCount` - Visitor count updates
 
 ### POST `/api/transmissions/test`
 Sends a test transmission immediately.
