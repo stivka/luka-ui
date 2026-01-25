@@ -1,5 +1,3 @@
-# Getting Started with Create React MainApp
-
 This project was bootstrapped with [Create React MainApp](https://github.com/facebook/create-react-app).
 
 ## Stripe Payment Setup

@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { useGetVisitorCount } from "../providers/backendApi";
+import useVisitorCount from "../hooks/useVisitorCount";
 
 const VisitorCounter = () => {
-	const { data: count } = useGetVisitorCount();
+	const count = useVisitorCount();
 
 	return (
 		<Box
