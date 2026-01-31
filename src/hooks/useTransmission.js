@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { apiUrl } from "../config";
+import { subscribeToStream } from "../sse/stream";
 
 /**
  * Custom hook for managing SSE transmission connections.
@@ -17,10 +17,7 @@ export default function useTransmission(enabled = true) {
             return;
         }
 
-        const streamUrl = `${apiUrl}/api/stream`;
-        const es = new EventSource(streamUrl);
-
-        es.addEventListener("notification", (e) => {
+        const unsubscribe = subscribeToStream("notification", (e) => {
             try {
                 const msg = JSON.parse(e.data);
                 setItems((prev) => [msg, ...prev]);
@@ -29,13 +26,8 @@ export default function useTransmission(enabled = true) {
             }
         });
 
-        es.onerror = (e) => {
-            console.error("SSE transmission error:", e);
-            // EventSource will automatically attempt to reconnect
-        };
-
         return () => {
-            es.close();
+            unsubscribe();
         };
     }, [enabled]);
 

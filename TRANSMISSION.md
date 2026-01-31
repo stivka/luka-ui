@@ -4,11 +4,14 @@
 
 The Transmission feature provides a terminal-style notification system that displays incoming messages via Server-Sent Events (SSE). Messages appear with a realistic typing animation and persist on screen after completion.
 
+Also good for leaving news like "Live coming on 18th August at Paavli". Has a certain broadcasting, urgent feel to it, because it pops up and takes space on your view.
+
 ## Features
 
 - **Terminal-style UI**: Green text on black background with monospace font
 - **Typing Animation**: Messages appear character-by-character with realistic timing
 - **Persistent Messages**: Messages remain visible after typing completes
+- **Manual Dismiss**: Each transmission has an “X” button to dismiss it
 - **Console Toggle**: Enable/disable transmissions via browser console
 - **Automatic Connection**: Transmissions are enabled by default
 
@@ -19,7 +22,7 @@ Main component that manages the transmission display area. Located at `src/compo
 
 **Features:**
 - Fixed position at bottom-right of screen
-- Displays up to 5 most recent transmissions
+- Displays up to 5 most recent transmissions by default (configurable)
 - Manages typing animation state
 - Terminal-style styling
 
@@ -76,6 +79,11 @@ Establishes a unified SSE connection to receive both transmissions and visitor c
 **Event Types:**
 - `notification` - Transmission messages
 - `visitorCount` - Visitor count updates
+- `guestbookEntry` - Newly created guestbook entry (real-time update)
+
+**Why Guestbook still does a REST fetch but Visitor Count doesn’t:**
+- **Guestbook** is a *paged/history* view (page N, size/limit, sorting). SSE is one-way and great for “a new entry happened”, but it doesn’t replace querying historical pages, so the UI still calls the Guestbook API for the current page and uses SSE to update in real-time.
+- **Visitor count** is a single scalar value with no pagination/history needs, and the backend sends the initial value immediately on stream connect, so SSE can fully cover it without a separate fetch.
 
 ### POST `/api/transmissions/test`
 Sends a test transmission immediately.
@@ -146,6 +154,7 @@ curl -X POST "http://localhost:8080/api/transmissions/interval?minMs=5000&maxMs=
 - **API URL**: Configured in `src/config.js`
   - Defaults to `http://localhost:8080` if `REACT_APP_API_URL` is not set
   - Set `REACT_APP_API_URL` environment variable for production
+- **Transmission cap**: Set `REACT_APP_TRANSMISSION_MAX_ITEMS` (positive integer)\n  - Defaults to `5` when not set or invalid\n  - Example: `REACT_APP_TRANSMISSION_MAX_ITEMS=10`
 
 ### Backend
 - **Default Interval**: 5-25 minutes (configurable via `/api/transmissions/interval`)
@@ -158,47 +167,4 @@ Once the app is running, you can use these commands in the browser console:
 - `toggleTransmission()` - Enable/disable transmissions
 - `getTransmissionStatus()` - Check if transmissions are enabled
 - `testTransmission("message")` - Send a test transmission (if helper function is set up)
-
-## Styling
-
-The transmission component uses:
-- **Font**: `'Courier New', 'Consolas', monospace`
-- **Text Color**: `#00ff00` (bright green)
-- **Background**: `#000000` (black)
-- **Border**: Green with glow effect
-- **Position**: Fixed at bottom-right (16px from edges)
-- **Width**: 400px
-
-## Message Format
-
-Each transmission message includes:
-- **Type**: Message type (e.g., "TRANSMISSION", "TEST")
-- **Message**: The actual message content
-- **Timestamp**: ISO timestamp string
-- **Receiver Tag**: Simulated receiver identifier (RX-001, RX-042, etc.)
-
-## Architecture
-
-```
-Frontend (React)
-├── Transmission.js (main component)
-├── TransmissionItem.js (individual message)
-└── Hooks
-    ├── useTransmission.js (SSE connection)
-    ├── useTransmissionEnabled.js (console toggle)
-    └── useTypingAnimation.js (typing effect)
-
-Backend (Spring Boot)
-├── TransmissionController.java (REST endpoints)
-├── RandomTransmissionService.java (scheduled transmissions)
-└── SseHub.java (SSE connection management)
-```
-
-## Notes
-
-- Messages persist after typing animation completes
-- Typing speed is ~60ms per character for a deliberate, terminal-like feel
-- Maximum of 5 messages displayed at once (oldest are removed)
-- SSE connection automatically reconnects on error
-- Transmissions are enabled by default on page load
 

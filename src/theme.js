@@ -25,9 +25,9 @@ const theme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					cursor: "url(/images/cursor_64x64.png), pointer",
+					cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 					"&:hover": {
-						cursor: "url(/images/cursor_64x64.png), pointer",
+						cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 					},
 				},
 			},
@@ -35,14 +35,14 @@ const theme = createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				"*": {
-					cursor: "url(/images/cursor_64x64.png), auto",
+					cursor: "url(/images/cursor_64x64.png) 20 4, auto",
 				},
 				body: {
-					cursor: "url(/images/cursor_64x64.png), pointer !important",
+					cursor: "url(/images/cursor_64x64.png) 20 4, pointer !important",
 					background: "#4a1fcc",
 				},
 				a: {
-					cursor: "url(/images/cursor_64x64.png), pointer !important",
+					cursor: "url(/images/cursor_64x64.png) 20 4, pointer !important",
 				},
 				"*::-webkit-scrollbar": {
 					display: "none", // Hides the scrollbar
@@ -60,9 +60,9 @@ const theme = createTheme({
 			styleOverrides: {
 				input: {
 					color: "lime",
-					cursor: "url(/images/cursor_64x64.png), pointer",
+					cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 					"&:hover": {
-						cursor: "url(/images/cursor_64x64.png), pointer",
+						cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 					},
 				},
 			},
@@ -77,9 +77,9 @@ const theme = createTheme({
 		MuiLink: {
 			styleOverrides: {
 				root: {
-					cursor: "url(/images/cursor_64x64.png), pointer",
+					cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 					"&:hover": {
-						cursor: "url(/images/cursor_64x64.png), pointer",
+						cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 					},
 				},
 			},

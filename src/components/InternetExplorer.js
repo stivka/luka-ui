@@ -61,7 +61,6 @@ const InternetExplorer = (props) => {
 					onClick={handleBack}
 					disabled={currentIndex === 0}
 					size="small"
-					sx={{ cursor: "auto !important" }}
 				>
 					<ArrowBackIcon />
 				</IconButton>
@@ -76,6 +75,29 @@ const InternetExplorer = (props) => {
 					variant="outlined"
 					size="small"
 					fullWidth
+					sx={{
+						// Override global lime theme styles for this address bar only:
+						// - text must not be green
+						// - inside must be white
+						// - outline/border must not be green (neutral gray, even on focus)
+						"& .MuiOutlinedInput-root": {
+							backgroundColor: "#ffffff",
+						},
+						"& .MuiOutlinedInput-input": {
+							color: "#111111",
+							WebkitTextFillColor: "#111111",
+						},
+						"& .MuiOutlinedInput-notchedOutline": {
+							borderColor: "#bdbdbd",
+						},
+						"&:hover .MuiOutlinedInput-notchedOutline": {
+							borderColor: "#9e9e9e",
+						},
+						"& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+							{
+								borderColor: "#9e9e9e",
+							},
+					}}
 					value={inputMessage}
 					onChange={(e) => setInputMessage(e.target.value)}
 					onKeyDown={(e) => {
@@ -93,7 +115,11 @@ const InternetExplorer = (props) => {
 				height="484px"
 				width="640px"
 				allow="clipboard-write; encrypted-media;"
-				style={{ aspectRatio: "4/3", ...iframeStyle }}
+				style={{
+					aspectRatio: "4/3",
+					backgroundColor: "#ffffff",
+					...iframeStyle,
+				}}
 				allowFullScreen
 			/>
 		</>

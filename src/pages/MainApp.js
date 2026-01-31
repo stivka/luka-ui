@@ -155,6 +155,7 @@ export default function MainApp() {
                     position: {xs: 'auto', md: 'absolute'},
                     right: 0,
                     overflowY: 'clip',
+                    pointerEvents: 'none',
                 }}>
                     <img src="/images/megahurtz.svg" alt="MegaHurtz"
                          style={{marginBottom: isMobile ? -32 : 0, width: '100%', height: 'auto'}}/>

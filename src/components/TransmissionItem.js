@@ -3,7 +3,7 @@ import useTypingAnimation from "../hooks/useTypingAnimation";
 /**
  * Individual transmission item with typing animation.
  */
-export default function TransmissionItem({ item, index, isNew }) {
+export default function TransmissionItem({ item, index, isNew, itemId, onDismiss }) {
     const displayedMessage = useTypingAnimation(item.message, 60, isNew);
 
     // Format timestamp to look like terminal log
@@ -37,6 +37,7 @@ export default function TransmissionItem({ item, index, isNew }) {
     return (
         <div 
             style={{ 
+                position: "relative",
                 padding: "8px 12px",
                 marginBottom: 4,
                 backgroundColor: "#000000",
@@ -45,10 +46,42 @@ export default function TransmissionItem({ item, index, isNew }) {
                 color: "#00ff00",
                 boxShadow: "0 0 8px rgba(0, 255, 0, 0.3)",
                 pointerEvents: "auto",
+                cursor: "default",
                 width: "100%",
                 maxWidth: 400
             }}
         >
+            <button
+                type="button"
+                aria-label="Dismiss transmission"
+                onPointerDown={(e) => {
+                    // Use pointerdown (not click) so dismiss works even if
+                    // pointerup/click gets swallowed by an underlying layer/iframe.
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onDismiss?.(itemId);
+                }}
+                style={{
+                    position: "absolute",
+                    top: 6,
+                    right: 6,
+                    width: 18,
+                    height: 18,
+                    padding: 0,
+                    border: "1px solid #00ff00",
+                    backgroundColor: "#000000",
+                    color: "#00ff00",
+                    cursor: "pointer",
+                    lineHeight: "16px",
+                    fontSize: 12,
+                    fontFamily: "inherit",
+                    opacity: 0.9,
+                    zIndex: 2,
+                    pointerEvents: "auto"
+                }}
+            >
+                ×
+            </button>
             <div style={{ 
                 fontSize: 10, 
                 color: "#00aa00",

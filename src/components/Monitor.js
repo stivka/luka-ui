@@ -125,9 +125,9 @@ const Monitor = () => {
 							position: "absolute",
 							top: "45px",
 							left: "470px",
-							cursor: "url(/images/cursor_64x64.png), pointer",
+								cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 							"&:hover": {
-								cursor: "url(/images/cursor_64x64.png), pointer",
+									cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 							},
 						}}
 					>
@@ -136,7 +136,7 @@ const Monitor = () => {
 							alt="Website"
 							width="175%"
 							style={{
-								cursor: "url(/images/cursor_64x64.png), pointer",
+								cursor: "url(/images/cursor_64x64.png) 20 4, pointer",
 							}}
 						/>
 					</Box>
@@ -180,7 +180,7 @@ const Monitor = () => {
 						zIndex: zIndices.lastIndexOf(Apps.Internet) + 1 || 1,
 					}}
 				>
-					<InternetExplorer style={iframeStyle} />
+					<InternetExplorer iframeStyle={iframeStyle} />
 				</Application>
 				<Application
 					title={Apps.Minesweeper}

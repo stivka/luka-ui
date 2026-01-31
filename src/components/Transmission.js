@@ -12,7 +12,29 @@ export default function Transmission() {
     const { items } = useTransmission(enabled);
     const [displayedItems, setDisplayedItems] = useState([]);
     const [newItemIds, setNewItemIds] = useState(new Set());
+    const [dismissedIds, setDismissedIds] = useState(new Set());
     const containerRef = useRef(null);
+
+    const maxItemsRaw = process.env.REACT_APP_TRANSMISSION_MAX_ITEMS;
+    const maxItemsParsed = Number.parseInt(maxItemsRaw, 10);
+    const maxItems =
+        Number.isFinite(maxItemsParsed) && maxItemsParsed > 0 ? maxItemsParsed : 5;
+
+    const dismissItem = (itemId) => {
+        setDisplayedItems((prev) =>
+            prev.filter((item) => `${item.ts}-${item.message}` !== itemId)
+        );
+        setNewItemIds((prevIds) => {
+            const updated = new Set(prevIds);
+            updated.delete(itemId);
+            return updated;
+        });
+        setDismissedIds((prevIds) => {
+            const updated = new Set(prevIds);
+            updated.add(itemId);
+            return updated;
+        });
+    };
 
     // Track new items for typing animation
     useEffect(() => {
@@ -20,6 +42,8 @@ export default function Transmission() {
             const latestItem = items[0];
             const itemId = `${latestItem.ts}-${latestItem.message}`;
             
+            if (dismissedIds.has(itemId)) return;
+
             setDisplayedItems(prev => {
                 // Check if this is a new item
                 const exists = prev.some(item => `${item.ts}-${item.message}` === itemId);
@@ -38,14 +62,14 @@ export default function Transmission() {
                     }, animationDuration);
                     
                     // Add to end of array (will appear at bottom with column-reverse)
-                    // Limit to ~10 items to keep them in viewport
+                    // Limit items to keep them in viewport
                     const updated = [...prev, latestItem];
-                    return updated.slice(-10);
+                    return updated.slice(-maxItems);
                 }
                 return prev;
             });
         }
-    }, [items]);
+    }, [items, dismissedIds, maxItems]);
 
 
     return (
@@ -59,11 +83,14 @@ export default function Transmission() {
                 fontFamily: "'Courier New', 'Consolas', monospace",
                 fontSize: 12,
                 lineHeight: 1.4,
-                zIndex: 9999,
+                // Make sure this sits above anything else (including app windows / iframes)
+                zIndex: 2147483647,
                 display: "flex",
                 flexDirection: "column-reverse",
                 alignItems: "flex-end",
-                pointerEvents: "none"
+                pointerEvents: "none",
+                // Override the global “green cursor” so hover/click state is reliable/obvious.
+                cursor: "default"
             }}
         >
             {displayedItems.map((item, index) => {
@@ -76,6 +103,8 @@ export default function Transmission() {
                         item={item}
                         index={index}
                         isNew={isNew}
+                        itemId={itemId}
+                        onDismiss={dismissItem}
                     />
                 );
             })}
