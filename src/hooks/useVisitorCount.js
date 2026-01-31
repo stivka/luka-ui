@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { apiUrl } from "../config";
+import { subscribeToStream } from "../sse/stream";
 
 /**
  * Custom hook for real-time visitor count via SSE.
@@ -11,10 +11,7 @@ export default function useVisitorCount() {
     const [count, setCount] = useState(null);
 
     useEffect(() => {
-        const streamUrl = `${apiUrl}/api/stream`;
-        const es = new EventSource(streamUrl);
-
-        es.addEventListener("visitorCount", (e) => {
+        const unsubscribe = subscribeToStream("visitorCount", (e) => {
             try {
                 const data = JSON.parse(e.data);
                 setCount(data.count);
@@ -23,13 +20,8 @@ export default function useVisitorCount() {
             }
         });
 
-        es.onerror = (e) => {
-            console.error("SSE visitor count error:", e);
-            // EventSource will automatically attempt to reconnect
-        };
-
         return () => {
-            es.close();
+            unsubscribe();
         };
     }, []);
 

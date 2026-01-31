@@ -2,6 +2,7 @@ import { Pagination } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useState } from "react";
 import { useGetGuestbookEntries } from "../providers/backendApi";
+import useGuestbookStream from "../hooks/useGuestbookStream";
 import GuestbookEntry from "./GuestbookEntry";
 import GuestbookWriter from "./GuestbookWriter";
 import Loading from "./Loading";
@@ -10,6 +11,7 @@ const entriesPerPage = 5;
 
 const Guestbook = () => {
 	const [page, setPage] = useState(1);
+	useGuestbookStream(true);
 
 	const { data: entries, isPending } = useGetGuestbookEntries({
 		page: page - 1,
